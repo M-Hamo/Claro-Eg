@@ -1,0 +1,303 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$icons: #e6e6e657;
+$background-color: #fcfcfc;
+$dropdown-height: 50px;
+
+$form-height: 2000px;
+
+.ads-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  margin-top: 75px;
+
+  h3,
+  h4 {
+    color: $text-color;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  mat-error {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: red;
+    color: #fff;
+  }
+  .form-container {
+    padding: 0;
+    // min-height: $form-height;
+    background-color: $background-color;
+    .form {
+      // min-height: $form-height - 50px;
+      // background-color: red;
+    }
+    .media-picker-container {
+      min-height: 140px;
+      border-bottom: 2px solid #eceff2;
+      .media-picker-item {
+        height: 100px;
+        width: 100px;
+        background-color: $icons;
+        font-size: 30px;
+        color: $text-color;
+        .image-full {
+          height: 100px;
+          width: 100px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+        img,
+        video {
+          height: 80px;
+          width: 80px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+
+      .media-picker-item:hover {
+        cursor: pointer;
+        background-color: rgb(220, 220, 220);
+      }
+    }
+
+    .important {
+      .btn {
+        height: $dropdown-height;
+        padding: 0 20px;
+        margin-top: 5px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+        color: $text-color;
+        div {
+          margin: 0 5px;
+          width: 100%;
+        }
+      }
+
+      .btn-min {
+        min-width: 120px;
+        margin-top: 20px;
+      }
+
+      .dwopdown {
+        ::ng-deep .p-dropdown {
+          width: 100% !important;
+          max-height: $dropdown-height !important;
+          margin-top: 15px;
+          text-align: start;
+          background-color: whitesmoke;
+          border-radius: 5px !important;
+          border: 2px solid #eceff2 !important;
+        }
+      }
+      .interval {
+        .interval-item {
+          margin-top: 15px;
+          color: $text-color;
+        }
+        .fieldset {
+          height: $dropdown-height;
+          padding: 0;
+          border-radius: 5px;
+          border: 2px solid #eceff2 !important;
+          background-color: whitesmoke;
+
+          legend {
+            margin: 0 5px;
+            height: 10px;
+            color: $text-color;
+            background-color: $icons;
+          }
+          input {
+            margin: 0;
+            border: none;
+            outline: none;
+            line-height: 12px;
+            background-color: whitesmoke;
+          }
+        }
+
+        .dwopdown {
+          ::ng-deep .p-dropdown {
+            width: 100% !important;
+            max-height: $dropdown-height !important;
+            margin-top: 15px;
+            text-align: start;
+            background-color: whitesmoke;
+            border-radius: 5px !important;
+            border: 2px solid #eceff2 !important;
+          }
+        }
+      }
+      .input {
+        height: $dropdown-height;
+        border-radius: 5px;
+        padding: 0 5px;
+        margin-top: 15px;
+        background-color: whitesmoke;
+        border: 2px solid #eceff2 !important;
+        img {
+          height: 20px;
+          width: 20px;
+          margin: 0 10px;
+        }
+        input {
+          height: $dropdown-height;
+          line-height: 30px;
+          outline: none;
+          border: none;
+          text-align: start;
+          text-indent: 10px;
+          border-radius: 10px;
+          background-color: whitesmoke;
+        }
+      }
+    }
+
+    .divider {
+      min-height: $form-height;
+      margin: 50px 0;
+      width: 2px;
+      background-color: $text-color;
+    }
+
+    .important {
+    }
+
+    .more-details {
+    }
+  }
+
+  .map {
+    min-height: 350px;
+  }
+
+  .degree {
+    min-height: 250px;
+    min-width: 200px;
+    border-radius: 5px;
+    margin-top: 15px;
+    border: 15px solid #bccfd9;
+    background-color: #fff;
+    h3 {
+      color: $text-color;
+      padding: 0 5px;
+    }
+    span {
+      font-weight: 700;
+      font-size: 28px;
+      color: $text-color;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+    }
+
+    .sale-line {
+      h3 {
+        text-decoration: line-through;
+        min-width: 30px;
+      }
+    }
+    .label {
+      height: 40px;
+      min-width: 120px;
+      margin: 5px 0;
+      font-size: 16px;
+      border-radius: 3px;
+      border: 2px solid $text-color;
+      color: $text-color;
+      background-color: #fff;
+    }
+
+    .clicked-label {
+      height: 40px;
+      min-width: 120px;
+      margin: 5px 0;
+      color: $text-color;
+      font-size: 16px;
+      border-radius: 3px;
+      color: #fff;
+      background-color: #c53f3f;
+    }
+
+    .label:hover {
+      cursor: pointer;
+      border: 2px solid #c53f3f;
+      color: #fff;
+      background-color: #c53f3f;
+    }
+    .clicked-label:hover {
+      cursor: pointer;
+      border: 2px solid $text-color;
+      color: $text-color;
+      background-color: #fff;
+    }
+  }
+  .show-ad {
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #fff;
+    background-color: red;
+    img {
+      height: 30px;
+      width: 30px;
+      margin: 0 6px;
+    }
+  }
+  .not-show-ad {
+    height: 50px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 20px;
+    color: #fff;
+    background-color: green;
+    img {
+      height: 30px;
+      width: 30px;
+      margin: 0 6px;
+    }
+  }
+  .show-ad,
+  .not-show-ad:hover,
+  .show-ad,
+  .not-show-ad:active {
+    cursor: pointer;
+    box-shadow: #bccfd9;
+    -webkit-box-shadow: 0px 0px 33px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 33px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 33px -13px rgba(0, 0, 0, 0.75);
+  }
+  .post {
+    height: 100px;
+    button {
+      height: 40px;
+      min-width: 200px;
+      color: #fff;
+      font-size: 18px;
+      background-color: $text-color;
+    }
+    .post-button:hover {
+      cursor: pointer;
+      box-shadow: #bccfd9;
+      -webkit-box-shadow: 0px 0px 33px -13px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 0px 0px 33px -13px rgba(0, 0, 0, 0.75);
+      box-shadow: 0px 0px 33px -13px rgba(0, 0, 0, 0.75);
+    }
+  }
+}

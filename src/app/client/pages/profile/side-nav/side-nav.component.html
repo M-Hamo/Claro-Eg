@@ -1,0 +1,130 @@
+<!--  -->
+<mat-accordion fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+  <div
+    class="side-button mat-elevation-z2"
+    fxFlex="100"
+    fxLayout="row wrap"
+    fxLayoutAlign="space-between center"
+    *ngFor="let link of navButtons"
+    [routerLink]="link.router"
+    routerLinkActive="activeLink"
+    [routerLinkActiveOptions]="{ exact: true }"
+    (click)="routerUrl = link.router"
+  >
+    <div class="title" fxLayout="row" fxLayoutAlign="center center">
+      <img [src]="link.router.includes(routerUrl) ? link.icon2 : link.icon1" alt="" />
+      <div style="margin: 0 5px">
+        {{ link.title | translate }}
+      </div>
+    </div>
+    <mat-icon>{{ lang === 'ar' ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+  </div>
+  <!--  -->
+  <mat-expansion-panel
+    [routerLink]="chatButton.router"
+    routerLinkActive="chatActive"
+    fxFlex="100"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    (click)="routerUrl = chatButton.router"
+  >
+    <mat-expansion-panel-header style="padding-inline-start: 5px">
+      <mat-panel-title fxLayout="row" fxLayoutAlign="start center">
+        <div class="title" fxLayout="row" fxLayoutAlign="center center">
+          <img
+            [src]="
+              chatButton.router.includes(routerUrl) ? chatButton.icon2 : chatButton.icon1
+            "
+            alt=""
+          />
+          <div style="margin: 0 5px">{{ chatButton.title | translate }}</div>
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="chat-box" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="centr start">
+      <div
+        *ngFor="let item of chatButton.contacts"
+        fxFlex="100"
+        class="item"
+        fxLayout="row"
+        fxLayoutAlign="start center"
+        (click)="chooseContacts(item.id, item.name)"
+      >
+        <img [src]="item.img" alt="" />
+        <div class="name text-center m-l-8 m-r-8">{{ item.name }}</div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!--  -->
+<!-- <mat-expansion-panel
+      fxFlex="100"
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header style="padding-inline-start: 5px">
+        <mat-panel-title fxLayout="row" fxLayoutAlign="start center">
+          <div class="title" fxLayout="row" fxLayoutAlign="center center">
+            <img src="assets/icons/megaphone.svg" alt="" />
+            <div style="margin: 0 5px">{{ 'main.client.ads' | translate }}</div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        fxFill
+        class="ad-taps-container"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+      >
+        <div
+          class="tap"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <div fxFlex="90" fxLayout="row" fxLayoutAlign="start center">
+            <img src="assets/icons/binding.svg" alt="" />
+            <div style="margin: 0 5px">
+              {{ 'main.client.binding' | translate }}
+            </div>
+          </div>
+          <mat-icon fxFlex>{{
+            lang === 'ar' ? 'chevron_left' : 'chevron_right'
+          }}</mat-icon>
+        </div>
+        <div
+          class="tap"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <div fxFlex="90" fxLayout="row" fxLayoutAlign="start center">
+            <img src="assets/icons/live.svg" alt="" />
+            <div style="margin: 0 5px">
+              {{ 'main.client.live' | translate }}
+            </div>
+          </div>
+          <mat-icon fxFlex>{{
+            lang === 'ar' ? 'chevron_left' : 'chevron_right'
+          }}</mat-icon>
+        </div>
+        <div
+          class="tap"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <div fxFlex="90" fxLayout="row" fxLayoutAlign="start center">
+            <img src="assets/icons/rejected.svg" alt="" />
+            <div style="margin: 0 5px">
+              {{ 'main.client.rejected' | translate }}
+            </div>
+          </div>
+          <mat-icon fxFlex>{{
+            lang === 'ar' ? 'chevron_left' : 'chevron_right'
+          }}</mat-icon>
+        </div>
+      </div>
+    </mat-expansion-panel> -->
+<!--  -->

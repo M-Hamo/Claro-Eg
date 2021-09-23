@@ -1,0 +1,30 @@
+<!-- dropdown content -->
+<div
+  fxFlex="100"
+  class="icon-container"
+  fxLayout="row wrap"
+  fxLayoutAlign="space-around center"
+  fxLayoutGap="10px"
+>
+  <a
+    *ngFor="let p of buttons"
+    [ngClass]="
+      p?.value === activeOneFromHome ? 'activeIcon' : p?.disabeled ? 'disabeled' : 'icon'
+    "
+    (click)="clickValue(p.value)"
+    fxLayout="row wrap"
+    fxLayoutAlign="center"
+  >
+    <div
+      *ngIf="p.disabeled"
+      style="position: absolute; height: 100%; width: 100%"
+      matTooltip="{{ 'main.client.later' | translate }}"
+    ></div>
+    <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+      <img fxFlex="80" [src]="p?.imgSurce" alt="" />
+      <mat-icon *ngIf="p.value === activeOneFromHome" class="active">check</mat-icon>
+    </div>
+    <h3 fxFlex="100">{{ p.title | translate }}</h3>
+  </a>
+</div>
+<!-- end -->

@@ -1,0 +1,41 @@
+<div class="commonquestions" fxLayout="row wrap" fxLayoutAlign="center center" dir="rtl">
+  <div fxFlex="70" fxFlex.xs="90" fxLayout="row wrap" fxLayoutAlign="center start">
+    <h3 class="m-t-48 h-50 p-0 f-s-20 text-start" fxFlex="100">
+      {{ 'main.header.common_question' | translate }}
+    </h3>
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-accordion
+        class="expansion-panel-container r-4"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center start"
+      >
+        <mat-expansion-panel
+          fxFlex="100"
+          *ngFor="let q of questions"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header style="padding-inline-start: 10px">
+            <mat-panel-title
+              fxLayout="row"
+              fxLayoutAlign="start center"
+              [ngStyle.sm]="{ 'font-size': '16px' }"
+              [ngStyle.xs]="{ 'font-size': '14px' }"
+            >
+              {{ q.ques }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p
+            fxFlex="100"
+            [ngStyle.sm]="{ 'font-size': '16px' }"
+            [ngStyle.xs]="{ 'font-size': '14px' }"
+          >
+            {{ q.ans }}
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <!--  -->
+    </div>
+  </div>
+</div>

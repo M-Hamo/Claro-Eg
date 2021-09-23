@@ -1,0 +1,37 @@
+@import '../mixins/avatar';
+
+.avatar-r-50 {
+  @include avatar-r(50);
+}
+
+.avatar-r-45 {
+  @include avatar-r(45);
+}
+
+.avatar-r-40 {
+  @include avatar-r(40);
+}
+
+.avatar-r-35 {
+  @include avatar-r(32);
+}
+
+.avatar-70 {
+  @include avatar(70);
+}
+
+.avatar-50 {
+  @include avatar(50);
+}
+
+.avatar-45 {
+  @include avatar(45);
+}
+
+.avatar-40 {
+  @include avatar(40);
+}
+
+.avatar-35 {
+  @include avatar(32);
+}

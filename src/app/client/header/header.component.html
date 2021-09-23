@@ -1,0 +1,119 @@
+<div class="navbar mat-elevation-z3" fxLayout="row" fxLayoutAlign="space-between center">
+  <div class="logo-list" fxLayout="row" fxLayoutAlign="center">
+    <div class="logo" matTooltip="{{ 'main.header.logo' | translate }}" routerLink="/">
+      <img src="../../../assets/images/logo.png" alt="" />
+    </div>
+    <div class="list" fxShow.xl fxShow.lt-xl fxHide.sm fxHide.lt-sm>
+      <ul fxFlexAlign="stretch" fxLayout="row" fxLayoutAlign="center">
+        <li>
+          <a href="#">{{ 'main.header.property' | translate }}</a>
+        </li>
+        <li>
+          <a href="#">{{ 'main.header.for_sale' | translate }}</a>
+        </li>
+        <li>
+          <a href="#">{{ 'main.header.for_rent' | translate }}</a>
+        </li>
+        <li>
+          <a href="#">{{ 'main.header.market' | translate }}</a>
+        </li>
+        <li>
+          <a routerLink="/common-questions" routerLinkActive="linkActive">{{
+            'main.header.common_question' | translate
+          }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="lang-profile-add"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxShow.xl
+    fxShow.lt-xl
+    fxHide.sm
+    fxHide.lt-sm
+  >
+    <div class="lang">
+      <a *ngIf="lang === 'ar'" (click)="changeLang('en')">English</a>
+      <a *ngIf="lang === 'en'" (click)="changeLang('ar')">العربية</a>
+    </div>
+    <div
+      style="height: 1.5em; width: 3px; margin: 0 5px; background-color: #30456a"
+    ></div>
+    <div class="profile">
+      <a fxLayout="row" fxLayoutAlign="center center" routerLink="/profile">
+        <mat-icon>person</mat-icon>{{ 'main.header.profile' | translate }}</a
+      >
+    </div>
+    <div class="add" fxLayout="row" fxLayoutAlign="center center">
+      <button
+        mat-flat-button
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        routerLink="/posts"
+      >
+        <mat-icon>add_box</mat-icon>
+        {{ 'main.header.add_post' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="toggleButton" fxHide.xl fxHide.lt-xl fxShow.sm fxShow.lt-sm>
+    <a fxLayout="row" fxLayoutAlign="center center" (click)="minueToggle()">
+      <mat-icon>menu</mat-icon>
+    </a>
+  </div>
+  <div
+    *ngIf="navToggle"
+    class="nav-toggle"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <ul
+      fxLayout="row wrap"
+      fxLayoutAlign="center"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+      fxFlex="100"
+    >
+      <li fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <!-- make it deferent -->
+        <a
+          routerLink="/profile"
+          fxFlex="100"
+          fxLayout="row"
+          fxLayoutAlign="start center"
+          (click)="minueToggle()"
+        >
+          <mat-icon>person</mat-icon
+          ><span style="margin: 0 5px">{{ 'main.header.profile' | translate }}</span></a
+        >
+      </li>
+      <li fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <a fxFlex="100" href="#" (click)="minueToggle()">{{
+          'main.header.property' | translate
+        }}</a>
+      </li>
+      <li fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <a fxFlex="100" href="#" (click)="minueToggle()">{{
+          'main.header.for_sale' | translate
+        }}</a>
+      </li>
+      <li fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <a fxFlex="100" href="#" (click)="minueToggle()">{{
+          'main.header.for_rent' | translate
+        }}</a>
+      </li>
+      <li fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <a fxFlex="100" href="#" (click)="minueToggle()">{{
+          'main.header.market' | translate
+        }}</a>
+      </li>
+      <li fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <a fxFlex="100" href="#" (click)="minueToggle()">{{
+          'main.header.common_question' | translate
+        }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

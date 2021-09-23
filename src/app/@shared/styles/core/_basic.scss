@@ -1,0 +1,45 @@
+//////////////////////////////////////
+// BASIC ELEMENTS
+//////////////////////////////////////
+
+@import '../variables';
+
+div,
+pre {
+  white-space: pre-wrap;
+  font-family: $font-family-base;
+}
+
+mark {
+  background-color: transparent;
+  font-weight: 500;
+  border-bottom: solid 4px #fff176;
+
+  &:hover {
+    border-bottom: solid 6px #ffeb3b;
+  }
+}
+
+dfn {
+  font-style: normal;
+}
+
+a {
+  white-space: pre-wrap;
+  color: $link-color;
+  text-decoration: $link-decoration;
+}
+
+dl,
+ol,
+ul {
+  margin-bottom: 1rem;
+}
+
+//[type="button"]:not(:disabled),
+//[type="reset"]:not(:disabled),
+//[type="submit"]:not(:disabled),
+//button:not(:disabled) {
+//  cursor: pointer;
+//  outline: none;
+//}

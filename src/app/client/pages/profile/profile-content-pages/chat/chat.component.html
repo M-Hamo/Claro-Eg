@@ -1,0 +1,311 @@
+<div class="chat-container" fxLayout="column" fxLayoutAlign="center start">
+  <div class="chat-header" fxLayout="row" fxLayoutAlign="start center">
+    <div class="avatar" fxLayout="row" fxLayoutAlign="start center">
+      <div class="img-pick" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img src="assets/images/inechtine.jpg" alt="" />
+      </div>
+      <div class="name" fxLayout="row wrap" fxLayoutAlign="center center">محمد الديب</div>
+    </div>
+  </div>
+
+  <!--  -->
+  <div class="message-box" fxFlex>
+    <!-- photo loader pannel -->
+    <div
+      *ngIf="showPanel"
+      class="photoPannelshowing"
+      fxFill
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+    >
+      <!--  -->
+      <div
+        class="bannel-header"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="start center"
+      >
+        <div class="preview" fxLayout="row wrap" fxLayoutAlign="center center">
+          <button (click)="closePhotoPannel()"><mat-icon>close</mat-icon></button>
+          <div class="text">{{ 'main.client.preview' | translate }}</div>
+        </div>
+      </div>
+      <!--  -->
+      <div class="image" fxFlex="80" fxLayout="row wrap" fxLayoutAlign="center start">
+        <img class="vioce-message-avatar" [src]="initailPhoto" alt="" />
+      </div>
+      <div
+        class="select-more"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+      >
+        <button
+          class="submit-imgs"
+          mat-fab
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+          type="button"
+          (click)="post(null)"
+        >
+          <mat-icon>send</mat-icon>
+        </button>
+        <label
+          *ngFor="let p of filePicker"
+          class="media-picker-item r-8"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+          [for]="p.id"
+          ><div
+            *ngIf="!p.file && !p.msg"
+            fxFill
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            +
+          </div>
+          <div
+            *ngIf="p.file || p.msg"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <img class="image-full" [src]="p.imageShow" />
+            <div
+              *ngIf="p.msg"
+              class="text-center f-s-12 text-red-500"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+            >
+              {{ p.msg | translate }}<mat-icon style="color: red">warning</mat-icon>
+            </div>
+          </div>
+          <input
+            type="file"
+            [id]="p.id"
+            #input
+            (change)="onSelectFile($event, input.files, p.id)"
+            hidden
+          />
+        </label>
+      </div>
+    </div>
+    <!-- message from anther person -->
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="end center">
+      <div class="msg2" fxLayout="row wrap" fxLayoutAlign="center center">
+        <!-- message here -->
+        <div fxFlex="100">nice to meet you</div>
+        <!-- message time -->
+        <div class="time" fxFlex="100" fxLayour="row wrap" fxLayoutAlign="start center">
+          10:30 م
+        </div>
+      </div>
+    </div>
+    <!-- my message -->
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+      <div class="msg1" fxLayout="row wrap" fxLayoutAlign="center center">
+        <!-- message -->
+        <div fxFlex="100">mohamed eldeeb :)</div>
+        <!-- message time -->
+
+        <div class="time" fxFlex="100" fxLayour="row wrap" fxLayoutAlign="end center">
+          10:30 م
+        </div>
+      </div>
+    </div>
+    <!-- my vioce message -->
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+      <div class="vioce-message1" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div
+          class="audio-player-container"
+          fxFlex="100"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <ngx-audio-player
+            class="audio-player"
+            fxFlex
+            [playlist]="msaapPlaylist1"
+            [displayTitle]="playerSettings.msaapDisplayTitle"
+            [autoPlay]="false"
+            muted="muted"
+            [displayPlaylist]="playerSettings.msaapDisplayPlayList"
+            [displayVolumeControls]="playerSettings.msaapDisplayVolumeControls"
+            [displayRepeatControls]="playerSettings.msaapDisplayRepeatControls"
+            [disablePositionSlider]="playerSettings.msaapDisablePositionSlider"
+            [displayArtist]="playerSettings.msaapDisplayArtist"
+            [displayDuration]="playerSettings.msaapDisplayDuration"
+            [expanded]="false"
+          ></ngx-audio-player>
+          <!-- image -->
+          <img class="vioce-message-avatar" src="assets/images/inechtine.jpg" alt="" />
+        </div>
+        <!-- message time -->
+        <div class="time" fxFlex="100" fxLayour="row wrap" fxLayoutAlign="end center">
+          10:30 م
+        </div>
+      </div>
+    </div>
+
+    <!-- vioce message from anther person -->
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="end center">
+      <div class="vioce-message2" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div
+          class="audio-player-container"
+          fxFlex="100"
+          fxLayout="row"
+          fxLayoutAlign="center center"
+        >
+          <!-- image -->
+          <img class="vioce-message-avatar" src="assets/images/girl.jpg" alt="" />
+
+          <ngx-audio-player
+            class="audio-player"
+            fxFlex
+            [playlist]="msaapPlaylist2"
+            [displayTitle]="playerSettings.msaapDisplayTitle"
+            [autoPlay]="false"
+            muted="muted"
+            [displayPlaylist]="playerSettings.msaapDisplayPlayList"
+            [displayVolumeControls]="playerSettings.msaapDisplayVolumeControls"
+            [displayRepeatControls]="playerSettings.msaapDisplayRepeatControls"
+            [disablePositionSlider]="playerSettings.msaapDisablePositionSlider"
+            [displayArtist]="playerSettings.msaapDisplayArtist"
+            [displayDuration]="playerSettings.msaapDisplayDuration"
+            [expanded]="false"
+          ></ngx-audio-player>
+        </div>
+        <div class="time" fxFlex="100" fxLayour="row wrap" fxLayoutAlign="start center">
+          10:30 م
+        </div>
+      </div>
+    </div>
+    <!-- my text message -->
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+      <div class="msg1" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div fxFlex="100">السلام عليكم ورحمة الله</div>
+        <!-- message time -->
+        <div class="time" fxFlex="100" fxLayour="row wrap" fxLayoutAlign="end center">
+          10:30 م
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+  <!--  -->
+  <form
+    #messageForm="ngForm"
+    *ngIf="!showPanel"
+    (ngSubmit)="post(messageForm)"
+    class="inputs"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <!--show submit button when typing >> else record-->
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+      <button
+        *ngIf="msg.dirty && msg.valid"
+        class="start-record-icon"
+        mat-flat-button
+        fxLayoutAlign="center center"
+        type="submit"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+      <button
+        *ngIf="(msg.invalid || (msg.untouched && msg.pristine)) && !startRec"
+        class="start-record-icon"
+        mat-flat-button
+        fxLayoutAlign="center center"
+        type="button"
+        (click)="startRecording()"
+      >
+        <mat-icon>mic</mat-icon>
+      </button>
+
+      <div
+        class="start-recording"
+        *ngIf="(msg.invalid || (msg.untouched && msg.pristine)) && startRec"
+        fxLayout="row"
+        fxLayoutAlign="space-evenly center"
+      >
+        <button
+          *ngIf="true"
+          class="accept record-button"
+          fxLayoutAlign="center center"
+          type="button"
+          (click)="stopRecording()"
+        >
+          <mat-icon>done</mat-icon>
+        </button>
+        <div
+          *ngIf="true"
+          class="timer"
+          fxLayout="row"
+          fxLayoutAlign="space-evenly center"
+        >
+          <div class="time text-center" dir="ltr">
+            {{ menuitTime }} : {{ seccondTime }}
+          </div>
+          <div class="red-point"></div>
+        </div>
+        <button
+          *ngIf="true"
+          class="cancel record-button"
+          fxLayoutAlign="center center"
+          type="button"
+          (click)="cancelRecodingTimer()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <!--  -->
+    <div class="input" fxFlex fxLayout="row wrap" fxLayoutAlign="center center">
+      <textarea
+        fxFlex="98"
+        cols="30"
+        rows="1"
+        placeholder="{{ 'main.client.type_message' | translate }}"
+        #msg="ngModel"
+        name="message"
+        [(ngModel)]="message"
+        required
+      ></textarea>
+    </div>
+    <div class="icon cam" fxLayout="row wrap" fxLayoutAlign="center center">
+      <label
+        class="selectPhoto"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+        for="selectPhoto"
+      >
+        <input
+          id="selectPhoto"
+          type="file"
+          hidden
+          #input
+          (change)="onSelectFile($event, input.files, 0)"
+        />
+        <mat-icon>photo_camera</mat-icon>
+      </label>
+    </div>
+    <div class="icon cam" fxLayout="row wrap" fxLayoutAlign="center center">
+      <label
+        class="selectPhoto"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+        for="selectFile"
+      >
+        <input
+          id="selectFile"
+          type="file"
+          hidden
+          #input2
+          (change)="onSelectFile($event, input2.files, -1)"
+        />
+        <mat-icon>attach_file</mat-icon>
+      </label>
+    </div>
+  </form>
+</div>

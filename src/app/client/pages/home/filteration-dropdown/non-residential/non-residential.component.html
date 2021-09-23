@@ -1,0 +1,431 @@
+<!-- dropdown content -->
+
+<div class="icon-container" fxLayout="row wrap" fxLayoutAlign="center center">
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <a class="icon" fxLayout="row wrap" fxLayoutAlign="center" (click)="op1.show($event)">
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/Mask Group 76.svg" alt="" />
+      </div>
+      <h3 fxFlex="100">{{ 'main.client.commercial' | translate }}</h3>
+    </a>
+
+    <p-overlayPanel
+      #op1
+      appendTo="body"
+      [autoZIndex]="true"
+      [showCloseIcon]="false"
+      [style]="{
+        width: '225px',
+        'margin-top': '-50px',
+        'border-radius': '10px'
+      }"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <ng-template pTemplate>
+        <a
+          (click)="clickValue('commercial_land')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.commercial_land' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Mask Group 53.svg"
+            alt=""
+          />
+        </a>
+        <!--  -->
+        <a
+          (click)="clickValue('mezzanine_gallery')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.mezzanine_gallery' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Mask Group 77.svg"
+            alt=""
+          />
+        </a>
+        <!--  -->
+        <a
+          (click)="clickValue('fully_commercial_building')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.fully_commercial_building' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Mask Group 78.svg"
+            alt=""
+          />
+        </a>
+        <!--  -->
+        <a
+          (click)="clickValue('shop')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.shop' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Mask Group 76.svg"
+            alt=""
+          />
+        </a>
+      </ng-template>
+    </p-overlayPanel>
+
+    <a class="icon" fxLayout="row wrap" fxLayoutAlign="center" (click)="op2.show($event)">
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/office-worker.svg" alt="" />
+      </div>
+      <h3 fxFlex="100">
+        {{ 'main.client.administrative' | translate }}
+      </h3>
+    </a>
+
+    <p-overlayPanel
+      #op2
+      appendTo="body"
+      [autoZIndex]="true"
+      [showCloseIcon]="false"
+      [style]="{
+        width: '225px',
+        'margin-top': '-50px',
+        'border-radius': '10px'
+      }"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <ng-template pTemplate>
+        <a
+          (click)="clickValue('administrative_lan')"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.administrative_land' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Mask Group 75.svg"
+            alt=""
+          />
+        </a>
+        <!--  -->
+        <a
+          (click)="clickValue('office')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.office' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Office.svg"
+            alt=""
+          />
+        </a>
+        <a
+          (click)="clickValue('complete_administrative_building')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.complete_administrative_building' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/Mask Group 78.svg"
+            alt=""
+          />
+        </a>
+      </ng-template>
+    </p-overlayPanel>
+
+    <!--  -->
+    <a class="icon" fxLayout="row wrap" fxLayoutAlign="center" (click)="op3.show($event)">
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/heartbeat.svg" alt="" />
+      </div>
+      <h3 fxFlex="100">{{ 'main.client.medical' | translate }}</h3>
+    </a>
+    <p-overlayPanel
+      #op3
+      appendTo="body"
+      [autoZIndex]="true"
+      [showCloseIcon]="false"
+      [style]="{
+        width: '225px',
+        'margin-top': '-50px',
+        'border-radius': '10px'
+      }"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <ng-template pTemplate>
+        <a
+          (click)="clickValue('clinic')"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.clinic' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/clinic.svg"
+            alt=""
+          />
+        </a>
+        <a
+          (click)="clickValue('pharmacy')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.pharmacy' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/pharmacy.svg"
+            alt=""
+          />
+        </a>
+        <a
+          (click)="clickValue('land_of_a_medical_complex')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.land_of_a_medical_complex' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/land.svg"
+            alt=""
+          />
+        </a>
+        <a
+          (click)="clickValue('hospital_land')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.hospital_land' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/land.svg"
+            alt=""
+          />
+        </a>
+        <a
+          (click)="clickValue('complete_medical_complex')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          disabled
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.complete_medical_complex' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/complete_medical_complex.svg"
+            alt=""
+          />
+        </a>
+        <a
+          (click)="clickValue('hospital')"
+          style="margin-top: 5px"
+          mat-menu-item
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+          disabled
+        >
+          <span style="min-width: 120px; color: #024b74">{{
+            'main.client.hospital' | translate
+          }}</span>
+          <img
+            style="
+              height: 40px;
+              width: 40px;
+              margin: 0 5px;
+              padding: 5px;
+              border: 1px solid #024b74;
+              border-radius: 50%;
+            "
+            src="assets/icons/complete_medical_complex.svg"
+            alt=""
+          />
+        </a>
+      </ng-template>
+    </p-overlayPanel>
+  </div>
+
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <a
+      class="disabeled"
+      fxLayout="row wrap"
+      fxLayoutAlign="center"
+      matTooltip="{{ 'main.client.later' | translate }}"
+    >
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/building (1).svg" alt="" />
+      </div>
+      <h3 fxFlex="100">{{ 'main.client.learn' | translate }}</h3>
+    </a>
+
+    <a
+      class="disabeled"
+      fxLayout="row wrap"
+      fxLayoutAlign="center"
+      matTooltip="{{ 'main.client.later' | translate }}"
+    >
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/factory.svg" alt="" />
+      </div>
+      <h3 fxFlex="100">{{ 'main.client.industrial' | translate }}</h3>
+    </a>
+
+    <a
+      class="disabeled"
+      fxLayout="row wrap"
+      fxLayoutAlign="center"
+      matTooltip="{{ 'main.client.later' | translate }}"
+    >
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/factory.svg" alt="" />
+      </div>
+      <h3 fxFlex="100">{{ 'main.client.industrial' | translate }}</h3>
+    </a>
+    <a
+      class="disabeled"
+      fxLayout="row wrap"
+      fxLayoutAlign="center"
+      matTooltip="{{ 'main.client.later' | translate }}"
+    >
+      <div class="img" fxFlex="70" fxLayout="row wrap" fxLayoutAlign="center center">
+        <img fxFlex="100" src="assets/icons/hotel (1).svg" alt="" />
+      </div>
+      <h3 fxFlex="100">{{ 'main.client.hotel' | translate }}</h3>
+    </a>
+  </div>
+</div>

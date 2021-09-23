@@ -1,0 +1,125 @@
+<div class="footer" fxLayout="row wrap" fxLayoutAlign="center center">
+  <div
+    class="content"
+    fxFlex="80"
+    fxFlex.xs="90"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div class="logo-list" fxLayout="row" fxLayoutAlign="center center">
+      <div class="logo" matTooltip="{{ 'main.header.logo' | translate }}" routerLink="/">
+        <img src="../../../assets/images/logo.png" alt="" />
+      </div>
+      <div class="list" fxFlex.sm fxHide.lt-sm>
+        <ul fxFlexAlign="stretch" fxLayout="row" fxLayoutAlign="center center">
+          <li [ngStyle.xs]="{ 'min-width': '40px' }">
+            <a
+              href="#"
+              [ngStyle.lt-lg]="{ 'font-size': '12px' }"
+              [ngStyle.sm]="{ 'font-size': '12px' }"
+              [ngStyle.xs]="{ 'font-size': '10px' }"
+              >{{ 'main.footer.about_us' | translate }}</a
+            >
+          </li>
+          <span
+            [ngStyle.sm]="{ margin: '0 5px' }"
+            [ngStyle.xs]="{ margin: '0 2px' }"
+          ></span>
+          <li [ngStyle.xs]="{ 'min-width': '40px' }">
+            <a
+              routerLink="privacy-policy"
+              [ngStyle.lt-lg]="{ 'font-size': '12px' }"
+              [ngStyle.sm]="{ 'font-size': '12px' }"
+              [ngStyle.xs]="{ 'font-size': '10px' }"
+              >{{ 'main.footer.privacy_policy' | translate }}</a
+            >
+          </li>
+          <span
+            [ngStyle.sm]="{ margin: '0 5px' }"
+            [ngStyle.xs]="{ margin: '0 2px' }"
+          ></span>
+          <li [ngStyle.xs]="{ 'min-width': '40px' }">
+            <a
+              routerLink="common-questions"
+              [ngStyle.lt-lg]="{ 'font-size': '12px' }"
+              [ngStyle.sm]="{ 'font-size': '12px' }"
+              [ngStyle.xs]="{ 'font-size': '10px' }"
+              >{{ 'main.header.common_question' | translate }}</a
+            >
+          </li>
+          <span
+            [ngStyle.sm]="{ margin: '0 5px' }"
+            [ngStyle.xs]="{ margin: '0 2px' }"
+          ></span>
+          <li [ngStyle.xs]="{ 'min-width': '40px' }">
+            <a
+              href="#"
+              [ngStyle.lt-lg]="{ 'font-size': '12px' }"
+              [ngStyle.sm]="{ 'font-size': '12px' }"
+              [ngStyle.xs]="{ 'font-size': '10px' }"
+              >{{ 'main.footer.market' | translate }}</a
+            >
+          </li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="contacts"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+      fxShow.xl
+      fxShow.lt-xl
+      fxShow.lt-sm
+      fxHide.sm
+    >
+      <span fxFlex="100" style="color: #254988; margin-bottom: 5px">{{
+        'main.footer.contact_us' | translate
+      }}</span>
+      <div class="icons" fxFlex="100">
+        <a style="background-color: rgb(51, 51, 150)" href="#"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a style="background-color: rgb(55, 155, 255)" href="#"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          style="
+            background: radial-gradient(
+              circle at 30% 107%,
+              #fdf497 0%,
+              #fdf497 5%,
+              #fd5949 45%,
+              #d6249f 60%,
+              #285aeb 90%
+            );
+          "
+          href="#"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a style="background-color: rgb(36, 36, 179)" href="#"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+      </div>
+    </div>
+    <div
+      class="download"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+      [ngStyle.xs]="{ width: '70px' }"
+    >
+      <a fxFlex="100"
+        ><img
+          [ngStyle.xs]="{ width: '75px' }"
+          src="../../../assets/icons/google play.png"
+          alt=""
+      /></a>
+      <a fxFlex="100"
+        ><img
+          [ngStyle.xs]="{ width: '75px' }"
+          src="../../../assets/icons/app store.png "
+          alt=""
+      /></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,210 @@
+.footer {
+  min-height: 100px;
+  width: 100%;
+  background-color: #224174;
+}
+
+.content {
+  height: 80px;
+  padding: 0 10px;
+  border-radius: 5px;
+  text-align: center;
+  direction: rtl;
+  background-color: white;
+  .logo-list {
+    border: none;
+    outline: none;
+
+  }
+
+  .logo {
+    max-height: 60px;
+    max-width: 60px;
+    border: none;
+    outline: none;
+    img {
+      max-height: inherit;
+      max-width: inherit;
+      border-radius: 20px;
+    }
+  }
+
+  .logo:hover {
+    cursor: pointer;
+  }
+
+  .list {
+    ul {
+      list-style: none;
+      span {
+        height: 23px;
+        background-color: #30456a;
+        width: 1.5px;
+        margin: 0 10px;
+      }
+      li {
+        min-width: 50px;
+      }
+      a {
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #3a6cc4;
+      }
+      a:hover {
+        color: #232c3c;
+      }
+    }
+  }
+}
+
+.contacts {
+  min-width: 100px;
+  min-height: 90px;
+
+  .icons {
+    a {
+      position: relative;
+      height: 30px;
+      width: 30px;
+      margin: 0 5px;
+      border-radius: 50%;
+      text-align: center;
+      color: white;
+      transition: all 0.4s ease-in-out;
+      i {
+        height: 30px;
+        width: 30px;
+      }
+    }
+    a:hover {
+      top: -2px;
+    }
+  }
+}
+
+.download {
+  height: 100%;
+  width: 100px;
+  a {
+    max-height: 35px;
+    margin: 2px 0;
+  }
+  img {
+    height: 35px;
+    width: 100px;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+}
+
+// @media (max-width: 1120px) {
+//   .content {
+//     height: 80px;
+//     padding: 0 10px;
+//     border-radius: 5px;
+//     text-align: center;
+//     direction: rtl;
+//     background-color: white;
+//     .logo {
+//       max-height: 60px;
+//       max-width: 60px;
+//       img {
+//         max-height: inherit;
+//         max-width: inherit;
+//         border-radius: 20px;
+//       }
+//     }
+
+//     .logo:hover {
+//       cursor: pointer;
+//     }
+
+//     .list {
+//       ul {
+//         list-style: none;
+//         padding: 0;
+//         span {
+//           height: 15px;
+//           background-color: #30456a;
+//           max-width: 1.5px;
+//         }
+//         a {
+//           margin: 0 5px;
+//           text-align: center;
+//           font-size: 15px;
+//           color: #3a6cc4;
+//           background-color: transparent;
+//         }
+//         a:hover {
+//           color: #232c3c;
+//         }
+//       }
+//     }
+//   }
+
+//   .download {
+//     height: 100%;
+//     max-width: 50px;
+//     a {
+//       max-height: 35px;
+//     }
+//     img {
+//       max-height: 35px;
+//       max-width: 50px;
+//     }
+
+//     a:hover {
+//       cursor: pointer;
+//     }
+//   }
+// }
+
+// @media (max-width: 483px) {
+//   .content {
+//     height: 80px;
+//     padding: 0 10px;
+//     border-radius: 5px;
+//     text-align: center;
+//     direction: rtl;
+//     background-color: white;
+//     .logo {
+//       max-height: 60px;
+//       max-width: 50px;
+//       img {
+//         max-height: inherit;
+//         max-width: inherit;
+//         border-radius: 20px;
+//       }
+//     }
+
+//     .logo:hover {
+//       cursor: pointer;
+//     }
+
+//     .list {
+//       ul {
+//         list-style: none;
+//         padding: 0;
+//         span {
+//           height: 10px;
+//           background-color: #30456a;
+//           width: 1.5px;
+//         }
+//         a {
+//           margin: 0 10px;
+//           text-align: center;
+//           font-size: 10px;
+//           font-weight: normal;
+//           color: #3a6cc4;
+//           background-color: transparent;
+//         }
+//         a:hover {
+//           color: #232c3c;
+//         }
+//       }
+//     }
+//   }
+// }

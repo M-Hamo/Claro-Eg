@@ -1,0 +1,883 @@
+<div class="layout" fxLayout="row wrap" fxLayoutAlign="center start">
+  <div class="container" fxFlex="75" fxLayout="row wrap" fxLayoutAlign="center start">
+    <div
+      class="fullHeightViewPiont"
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+      [ngStyle]="{ 'min-height.vh': 100 }"
+    >
+      <mat-card class="adds-container" fxFlex="100"></mat-card>
+      <!--  -->
+      <mat-card
+        class="banner"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+        [ngStyle.gt-lg]="{ 'min-height.vh': 50 }"
+        [ngStyle.lg]="{ 'min-height.vh': 62 }"
+        [ngStyle.lt-lg]="{ 'min-height.vh': 62 }"
+        [ngStyle.md]="{ 'min-height.px': 500 }"
+        [ngStyle.sm]="{ 'min-height.px': 620 }"
+        [ngStyle.lt-sm]="{ 'min-height.px': 620 }"
+      >
+        <h3 fxFlex="100" [ngStyle.lt-md]="{ 'font-size.px': 20 }">
+          {{ 'main.client.banner_title' | translate }}
+        </h3>
+        <div
+          class="search"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+          dir="rtl"
+        >
+          <form
+            #searchForm="ngForm"
+            (ngSubmit)="search(searchForm)"
+            fxFlex="80"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            fxLayoutGap="-5px"
+          >
+            <input
+              class="search-field"
+              fxFlex="75"
+              matInput
+              required
+              placeholder="{{ 'main.client.search_placeholder' | translate }}"
+              name="search"
+              [(ngModel)]="query"
+            />
+            <button
+              mat-flat-button
+              type="submit"
+              [disabled]="searchForm.invalid"
+              [ngStyle.lt-sm]="{ 'font-size.vw': 4 }"
+            >
+              {{ 'main.client.search' | translate }}
+            </button>
+          </form>
+        </div>
+        <div
+          class="filter-container"
+          fxFlex="98"
+          fxLayout="row wrap"
+          fxLayoutAlign="start start"
+          dir="rtl"
+        >
+          <span class="badge">{{ 'main.client.badge' | translate }}</span>
+          <div
+            class="filter-form"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="center start"
+          >
+            <form
+              [formGroup]="filterForm"
+              (ngSubmit)="filteration(filterForm.value)"
+              fxFlex="100"
+              fxLayout="row wrap"
+              fxLayoutAlign="center start"
+              dir="rtl"
+            >
+              <!-- line1 -->
+              <div
+                class="line1"
+                fxFlex="100"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+              >
+                <div
+                  class="half1"
+                  fxFlex.gt-sm="50"
+                  fxFlex.sm="100"
+                  fxFlex.lt-sm="100"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="center center"
+                >
+                  <label
+                    [ngClass]="buttonFilter.claroFilter ? 'claro claroActive' : 'claro'"
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                    for="claro"
+                  >
+                    <input type="checkbox" id="claro" hidden formControlName="claro" />
+                    Claro
+                  </label>
+
+                  <button
+                    [ngClass]="{ 'button-clicked': residential }"
+                    mat-flat-button
+                    type="button"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                    (click)="op1.toggle($event)"
+                  >
+                    <img src="assets/icons/Mask Group 19.svg" />
+                    {{ 'main.client.residential' | translate }}
+                  </button>
+
+                  <!-- dropdown  residential-->
+                  <p-overlayPanel
+                    #op1
+                    appendTo="body"
+                    [autoZIndex]="true"
+                    [showCloseIcon]="false"
+                    [style]="{
+                      width: '320px',
+                      'margin-top': '-60px',
+                      'border-radius': '10px'
+                    }"
+                  >
+                    <ng-template pTemplate>
+                      <app-residential
+                        (value)="setResValue($event)"
+                        (value)="residential = true"
+                        [activeOneFromHome]="resValue"
+                      ></app-residential>
+                    </ng-template>
+                  </p-overlayPanel>
+                  <!--  -->
+                  <button
+                    [ngClass]="{ 'button-clicked': nonResidential === true }"
+                    mat-flat-button
+                    type="button"
+                    (click)="op2.toggle($event)"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <img src="assets/icons/Group 766.svg" alt="" />
+                    {{ 'main.client.non_residential' | translate }}
+                  </button>
+
+                  <p-overlayPanel
+                    #op2
+                    appendTo="body"
+                    [autoZIndex]="true"
+                    [showCloseIcon]="false"
+                    [style]="{
+                      width: '320px',
+                      padding: '0',
+                      'margin-top': '-50px',
+                      'border-radius': '10px'
+                    }"
+                  >
+                    <ng-template pTemplate>
+                      <app-non-residential
+                        (value)="setNonResValue($event)"
+                        (value)="nonResidential = true"
+                      ></app-non-residential>
+                    </ng-template>
+                  </p-overlayPanel>
+                  <!-- end -->
+                  <!--  -->
+
+                  <label
+                    [ngClass]="buttonFilter.forSale ? 'label-active' : 'label'"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                    for="forSale"
+                  >
+                    <input
+                      type="checkbox"
+                      id="forSale"
+                      formControlName="forSale"
+                      hidden
+                    />
+
+                    <img src="assets/icons/Mask Group 4.svg" alt="" />
+                    {{ 'main.client.for_sale' | translate }}
+                  </label>
+                  <!--  -->
+                  <label
+                    [ngClass]="buttonFilter.forRent ? 'label-active' : 'label'"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                    for="forRent"
+                  >
+                    <input
+                      type="checkbox"
+                      id="forRent"
+                      formControlName="forRent"
+                      hidden
+                    />
+                    <img src="assets/icons/Mask Group 107.svg" alt="" />
+                    {{ 'main.client.for_rent' | translate }}
+                  </label>
+                </div>
+                <div
+                  class="half2"
+                  fxFlex.gt-sm="50"
+                  fxFlex.sm="100"
+                  fxFlex.lt-sm="100"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="space-evenly center"
+                  [ngStyle.lt-md]="{ 'padding-top.px': 10 }"
+                >
+                  <div
+                    class="dwopdown"
+                    fxFlex="45"
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                  >
+                    <p-dropdown
+                      fxFill
+                      [options]="cities"
+                      placeholder="{{ 'main.client.development_company' | translate }}"
+                      optionLabel="name"
+                      [showClear]="true"
+                      formControlName="company"
+                    ></p-dropdown>
+                  </div>
+                  <div
+                    class="map-list-toggle"
+                    fxFlex="45"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <div
+                      class="list"
+                      fxFlex="49"
+                      fxLayout="row"
+                      fxLayoutAlign="center center"
+                      [ngClass]="{ listToogle: mapToggle === false }"
+                      (click)="mapToggle = false"
+                    >
+                      <img src="assets/icons/Icon color.svg" alt="" />
+                      {{ 'main.client.list' | translate }}
+                    </div>
+                    <div
+                      class="map"
+                      fxFlex="49"
+                      fxLayout="row"
+                      fxLayoutAlign="center center"
+                      [ngClass]="{ mapToggle: mapToggle === true }"
+                      (click)="mapToggle = true"
+                    >
+                      <img src="assets/icons/Fill 1101.svg" alt="" />
+                      {{ 'main.client.map' | translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- line2 -->
+              <div
+                class="line2"
+                fxFlex="100"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+                [ngStyle.gt-md]="{ 'margin-top.vh': 1 }"
+                [ngStyle.md]="{ 'margin-top.vh': 1 }"
+                [ngStyle.lt-md]="{ 'margin-top.vh': 1 }"
+              >
+                <div
+                  class="half1"
+                  fxFlex.gt-sm="50"
+                  fxFlex.sm="100"
+                  fxFlex.lt-sm="100"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="space-evenly center"
+                >
+                  <div
+                    class="input"
+                    fxFlex="45"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <input
+                      fxFlex="85"
+                      required
+                      placeholder="{{ 'main.client.city' | translate }}"
+                      formControlName="city"
+                    />
+                    <img fxFlex src="assets/icons/Mask Group 9.svg" alt="" />
+                  </div>
+                  <div
+                    class="input"
+                    fxFlex="45"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <input
+                      fxFlex="85"
+                      required
+                      placeholder="{{ 'main.client.neighborhood' | translate }} / {{
+                        'main.client.region' | translate
+                      }}"
+                      formControlName="neighborhood"
+                    />
+                    <img fxFlex src="assets/icons/Mask Group 9.svg" alt="" />
+                  </div>
+                </div>
+                <div
+                  class="half2"
+                  fxFlex.gt-sm="50"
+                  fxFlex.sm="100"
+                  fxFlex.lt-sm="100"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="space-evenly center"
+                  [ngStyle.md]="{ 'margin-top.vh': 1 }"
+                  [ngStyle.lt-md]="{ 'margin-top.vh': 1 }"
+                >
+                  <div
+                    class="input"
+                    fxFlex="45"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <img
+                      fxFlex
+                      [ngStyle.sm]="{ margin: '0px 3px' }"
+                      [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+                      src="assets/icons/Mask Group 109.svg"
+                      alt=""
+                    />
+                    <input
+                      fxFlex="70"
+                      type="number"
+                      style="text-indent: 0"
+                      required
+                      placeholder="{{ 'main.client.asking_price' | translate }}"
+                      formControlName="price"
+                    />
+                    <i
+                      fxFlex
+                      class="pi pi-exclamation-circle"
+                      style="font-size: 19px; margin: 0 5px; color: #024b74"
+                      [ngStyle.lt-sm]="{ 'font-size.px': 15, 'margin.px': 0 }"
+                      [ngStyle.sm]="{ 'font-size.px': 15, 'margin.px': 0 }"
+                    ></i>
+                  </div>
+                  <div
+                    class="input"
+                    fxFlex="45"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <img
+                      fxFlex
+                      [ngStyle.sm]="{ margin: '0px 3px' }"
+                      [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+                      src="assets/icons/Mask Group 6.svg"
+                      alt=""
+                    />
+
+                    <input
+                      fxFlex="70"
+                      style="text-indent: 0"
+                      required
+                      placeholder="{{ 'main.client.space' | translate }}"
+                      formControlName="size"
+                    />
+                    <i
+                      fxFlex
+                      class="pi pi-exclamation-circle"
+                      style="font-size: 19px; margin: 0 5px; color: #024b74"
+                      [ngStyle.lt-sm]="{ 'font-size.px': 15, 'margin.px': 0 }"
+                      [ngStyle.sm]="{ 'font-size.px': 15, 'margin.px': 0 }"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <!-- line3 -->
+              <div
+                class="line3"
+                fxFlex="100"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+                [ngStyle.gt-md]="{ 'margin-top.vh': 1 }"
+                [ngStyle.md]="{ 'margin-top.vh': 1 }"
+                [ngStyle.lt-md]="{ 'margin-top.vh': 1 }"
+              >
+                <div
+                  class="half1"
+                  fxFlex.gt-sm="50"
+                  fxFlex.sm="100"
+                  fxFlex.lt-sm="100"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="space-evenly center"
+                >
+                  <div
+                    class="dwopdown"
+                    fxFlex="45"
+                    fxLayout="row"
+                    fxLayoutAlign="center center"
+                  >
+                    <p-dropdown
+                      fxFill
+                      [options]="cities"
+                      placeholder="{{ 'main.client.bedrooms' | translate }}"
+                      optionLabel="name"
+                      [showClear]="true"
+                      formControlName="bedRooms"
+                    >
+                    </p-dropdown>
+                  </div>
+                  <div
+                    class="dwopdown"
+                    fxFlex="45"
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                  >
+                    <p-dropdown
+                      fxFill
+                      [options]="cities"
+                      placeholder="{{ 'main.client.bathrooms' | translate }}"
+                      optionLabel="name"
+                      [showClear]="true"
+                      formControlName="bathRooms"
+                    ></p-dropdown>
+                  </div>
+                </div>
+                <div
+                  class="half2"
+                  fxFlex.gt-sm="50"
+                  fxFlex.sm="100"
+                  fxFlex.lt-sm="100"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="space-evenly center"
+                  [ngStyle.lt-md]="{ 'margin-top.vh': 1 }"
+                >
+                  <div
+                    class="dwopdown"
+                    fxFlex="45"
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                  >
+                    <p-dropdown
+                      fxFill
+                      [options]="cities"
+                      placeholder="{{ 'main.client.receiver_cut' | translate }}"
+                      optionLabel="name"
+                      [showClear]="true"
+                      formControlName="receiverCut"
+                    ></p-dropdown>
+                  </div>
+                  <div
+                    class="dwopdown"
+                    fxFlex="45"
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                  >
+                    <p-dropdown
+                      fxFill
+                      [options]="cities"
+                      placeholder="{{ 'main.client.the_role' | translate }}"
+                      optionLabel="name"
+                      [showClear]="true"
+                      formControlName="role"
+                    ></p-dropdown>
+                  </div>
+                </div>
+              </div>
+              <!-- selection-->
+              <div
+                class="selection"
+                fxFlex="100"
+                fxLayout="row wrap"
+                fxLayoutAlign="start center"
+              >
+                <div
+                  fxLayout="row wrap"
+                  fxLayoutAlign="space-between center"
+                  fxLayoutGap="20px"
+                >
+                  <mat-checkbox class="term" formControlName="installment"
+                    ><div style="margin: 0 5px">
+                      {{ 'main.client.installment' | translate }}
+                    </div></mat-checkbox
+                  >
+                  <mat-checkbox class="term" formControlName="elevator"
+                    ><div style="margin: 0 5px">
+                      {{ 'main.client.elevator' | translate }}
+                    </div></mat-checkbox
+                  >
+                  <mat-checkbox class="term" formControlName="furnished"
+                    ><div style="margin: 0 5px">
+                      {{ 'main.client.furnished' | translate }}
+                    </div></mat-checkbox
+                  >
+                  <mat-checkbox class="term" formControlName="compound"
+                    ><div style="margin: 0 5px">
+                      {{ 'main.client.inside_a_compound' | translate }}
+                    </div></mat-checkbox
+                  >
+                </div>
+              </div>
+              <div
+                class="submit-container"
+                fxFlex="95"
+                fxLayout="row wrap"
+                fxLayoutAlign="end center"
+                fxLayoutAlign.sm="center center"
+                fxLayoutAlign.lt-sm="center center"
+              >
+                <div
+                  class="buttons"
+                  fxLayout="row wrap"
+                  fxLayoutAlign="center center"
+                  fxLayoutGap="15px"
+                >
+                  <button
+                    class="submit"
+                    type="submit"
+                    mat-flat-button
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                    (click)="scrollToElement(target)"
+                  >
+                    <span fxFlex="100">{{ 'main.client.search' | translate }}</span>
+                  </button>
+                  <button
+                    class="reset"
+                    type="button"
+                    mat-flat-button
+                    fxLayout="row wrap"
+                    fxLayoutAlign="center center"
+                    (click)="resetForms()"
+                    (click)="searchForm.reset()"
+                  >
+                    <span fxFlex="100"> {{ 'main.client.reset' | translate }}</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!-- list content -->
+    <div
+      #target
+      class="content"
+      [ngStyle.gt-lg]="{ 'margin-top.px': 70 }"
+      [ngStyle.sm]="{ 'margin-top.px': 250 }"
+      [ngStyle.lt-sm]="{ 'margin-top.px': 250 }"
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+    >
+      <div
+        *ngIf="notFound"
+        [ngStyle.sm]="{ 'margin-top.px': 100 }"
+        [ngStyle.lt-sm]="{ 'margin-top.px': 100 }"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+      >
+        <!-- <app-search-not-found></app-search-not-found> -->
+      </div>
+      <div
+        *ngIf="!mapToggle && !notFound"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center start"
+      >
+        <!-- title -->
+        <div class="title" fxFlex="95" fxLayout="row" fxLayoutAlign="center center">
+          <div
+            class="line bg-gray-500"
+            fxFlex="42"
+            fxFlex.sm="35"
+            fxFlex.lt-sm="30"
+          ></div>
+          <p
+            fxFlex
+            class="text-center"
+            [ngStyle.sm]="{ 'font-size.px': 20 }"
+            [ngStyle.lt-sm]="{ 'font-size.px': 16 }"
+          >
+            {{ 'main.client.claro_real_estate' | translate }}
+          </p>
+          <div
+            class="line bg-gray-500"
+            fxFlex="42"
+            fxFlex.sm="35"
+            fxFlex.lt-sm="30"
+          ></div>
+        </div>
+        <!--  -->
+        <div
+          class="claroItems-list"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-evenly start"
+        >
+          <app-claro-item
+            class="item"
+            fxFlex="30"
+            fxFlex.sm="100"
+            fxFlex.xs="100"
+            *ngFor="let item of claroItems"
+            [item]="item"
+          ></app-claro-item>
+          <!-- see more  -->
+          <div
+            class="readMore"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="end center"
+          >
+            <button mat-flat-button fxLayout="row" fxLayoutAlign="center center">
+              {{ 'main.client.see_more' | translate }}
+              <mat-icon>arrow_right</mat-icon>
+            </button>
+          </div>
+          <!--  -->
+        </div>
+        <!--  -->
+        <!-- title -->
+        <div class="title" fxFlex="95" fxLayout="row" fxLayoutAlign="center center">
+          <div
+            class="line bg-gray-500"
+            fxFlex="42"
+            fxFlex.sm="35"
+            fxFlex.lt-sm="30"
+          ></div>
+          <p
+            fxFlex
+            class="text-center"
+            [ngStyle.sm]="{ 'font-size.px': 20 }"
+            [ngStyle.lt-sm]="{ 'font-size.px': 16 }"
+          >
+            {{ 'main.client.residential_real_estate' | translate }}
+          </p>
+          <div
+            class="line bg-gray-500"
+            fxFlex="42"
+            fxFlex.sm="35"
+            fxFlex.lt-sm="30"
+          ></div>
+        </div>
+        <!--  -->
+        <div
+          class="residential_real_estate"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-evenly start"
+        >
+          <app-claro-item
+            class="item"
+            fxFlex="30"
+            fxFlex.sm="100"
+            fxFlex.xs="100"
+            *ngFor="let item2 of residentialRealEstateItems"
+            [item]="item2"
+          ></app-claro-item>
+          <!-- see more -->
+          <div
+            class="readMore"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="end center"
+          >
+            <button mat-flat-button fxLayout="row" fxLayoutAlign="center center">
+              {{ 'main.client.see_more' | translate }}
+              <mat-icon>arrow_right</mat-icon>
+            </button>
+          </div>
+          <!--  -->
+        </div>
+        <!--  -->
+        <!-- title -->
+        <div class="title" fxFlex="95" fxLayout="row" fxLayoutAlign="center center">
+          <div
+            class="line bg-gray-500"
+            fxFlex="40"
+            fxFlex.sm="33"
+            fxFlex.lt-sm="27"
+          ></div>
+          <p
+            fxFlex
+            class="text-center"
+            [ngStyle.sm]="{ 'font-size.px': 20 }"
+            [ngStyle.lt-sm]="{ 'font-size.px': 16 }"
+          >
+            {{ 'main.client.non_residential_real_estate' | translate }}
+          </p>
+          <div
+            class="line bg-gray-500"
+            fxFlex="40"
+            fxFlex.sm="33"
+            fxFlex.lt-sm="27"
+          ></div>
+        </div>
+        <!--  -->
+        <div
+          class="residential_real_estate"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-evenly start"
+        >
+          <app-claro-item
+            class="item"
+            fxFlex="30"
+            fxFlex.sm="100"
+            fxFlex.xs="100"
+            *ngFor="let item3 of nonResidentialRealEstateItems"
+            [item]="item3"
+          ></app-claro-item>
+          <!-- see more -->
+          <div
+            class="readMore"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="end center"
+          >
+            <button mat-flat-button fxLayout="row" fxLayoutAlign="center center">
+              {{ 'main.client.see_more' | translate }}
+              <mat-icon>arrow_right</mat-icon>
+            </button>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end content -->
+  <div fxFlex="100" class="bg-gray-500" style="height: 1.5px; margin-bottom: 50px"></div>
+  <div class="under-content" fxFlex="75" fxLayout="row wrap" fxLayoutAlign="center start">
+    <!--  -->
+    <div
+      fxFlex="100"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutAlign.sm="center center"
+      fxLayoutAlign.xs="center center"
+    >
+      <div class="baddge bg-green-700" fxLayout="row" fxLayoutAlign="center center">
+        <strong>{{ 'main.client.most_requested_real_estate' | translate }}</strong>
+      </div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+      fxLayoutGap="20px"
+    >
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a
+          href="#"
+          *ngFor="let link of links"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+          >{{ link?.title }}</a
+        >
+      </div>
+      <div class="bg-gray-500" style="height: 110px; width: 1px"></div>
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links"
+          ><div>{{ link?.title }}</div></a
+        >
+      </div>
+      <div class="bg-gray-500" style="height: 110px; width: 1px"></div>
+
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links">{{ link?.title }}</a>
+      </div>
+      <div class="bg-gray-500" style="height: 110px; width: 1px"></div>
+
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links">{{ link?.title }}</a>
+      </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <div
+      fxFlex="100"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutAlign.sm="center center"
+      fxLayoutAlign.xs="center center"
+      style="margin-top: 30px"
+    >
+      <div class="baddge bg-red-700" fxLayout="row" fxLayoutAlign="center center">
+        <strong>{{ 'main.client.most_requested_real_estate' | translate }}</strong>
+      </div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+      fxLayoutGap="20px"
+    >
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links">{{ link?.title }}</a>
+      </div>
+      <div class="bg-gray-500" style="height: 110px; width: 1px"></div>
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links">{{ link?.title }}</a>
+      </div>
+      <div class="bg-gray-500" style="height: 110px; width: 1px"></div>
+
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links">{{ link?.title }}</a>
+      </div>
+      <div class="bg-gray-500" style="height: 110px; width: 1px"></div>
+
+      <div
+        class="link"
+        fxFlex="20"
+        fxFlex.sm="50"
+        fxFlex.xs="100"
+        fxLayout="column"
+        fxLayoutAlign="space-evenly center"
+      >
+        <a href="#" *ngFor="let link of links">{{ link?.title }}</a>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+</div>

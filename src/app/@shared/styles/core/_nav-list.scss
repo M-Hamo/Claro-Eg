@@ -1,0 +1,13 @@
+///////////////////////////////////
+@use '~@angular/material' as mat;
+// NAVLIST
+///////////////////////////////////
+@import '../variables';
+
+.mat-nav-list {
+  > a {
+    &.active {
+      color: mat.get-color-from-palette(map-get($theme, accent));
+    }
+  }
+}

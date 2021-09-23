@@ -1,0 +1,202 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$icons: #e6e6e657;
+$background-color: #fcfcfc;
+$dropdown-height: 50px;
+$photo-size: 117px;
+
+$form-height: 570px;
+
+.view-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  margin-top: 75px;
+
+  h3,
+  h4 {
+    color: $text-color;
+    margin: 0;
+  }
+
+  h3 {
+    min-height: 50px;
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  h4 {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .custom-carousel {
+    border-radius: 10px;
+    padding: 0;
+    background-color: $icons;
+    .carousel-photo {
+      height: 200px;
+      width: 100%;
+      img {
+        height: 180px;
+        object-fit: cover;
+        background-size: contain;
+        border-radius: 10px;
+      }
+    }
+    ::ng-deep .p-carousel .p-carousel-indicators {
+      display: none;
+    }
+  }
+
+  .view {
+    padding: 0;
+    margin: 0;
+    background-color: $background-color;
+
+    .price {
+      min-width: 120px;
+      height: 40px;
+      padding: 0 5px;
+      background-color: #fff;
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .like-share {
+      min-width: 150px;
+      button {
+        margin: 0 5px;
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .map-card {
+      min-height: 120px;
+      margin-top: 15px;
+      background-color: #fff;
+
+      img {
+        max-height: 80px;
+        object-fit: cover;
+        background-size: contain;
+        border-radius: 10px;
+      }
+
+      a:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .half1,
+  .half2,
+  .divider {
+    margin: 25px 0;
+  }
+
+  .discription-item {
+    height: 40px;
+    margin-top: 5px;
+    border-bottom: 2px solid $icons;
+    img {
+      height: 20px;
+      width: 20px;
+      margin: 0 5px;
+    }
+    span {
+      color: $text-color;
+      margin: 0 5px;
+      font-size: 16px;
+    }
+  }
+
+  .owner,
+  .important-info {
+    min-height: 160px;
+    border-top: 2px solid $icons;
+    border-bottom: 2px solid $icons;
+    border-right: 2px solid $text-color;
+    border-left: 2px solid $text-color;
+  }
+
+  .owner {
+    .img {
+      height: 120px;
+      width: 120px;
+      margin: 0 10px;
+      border-radius: 50%;
+      border: 3px solid $text-color;
+      img {
+        min-height: $photo-size;
+        max-height: $photo-size;
+        min-width: $photo-size;
+        max-width: $photo-size;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .name-button {
+      min-width: 130px;
+      button {
+        height: 40px;
+        width: 130px;
+        font-size: 17px;
+        color: #fff;
+        background-color: $text-color;
+        img {
+          height: 20px;
+          width: 20px;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+  .important-info {
+    .text {
+      height: 40px;
+      font-size: 17px;
+      color: $text-color;
+      img {
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+      }
+    }
+
+    .claro-clock {
+      margin-top: 15px;
+      height: 80px;
+      width: 80px;
+      background-color: whitesmoke;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    a:hover {
+      cursor: pointer;
+    }
+  }
+
+  .charts-container {
+    min-height: 200px;
+    padding: 15px 0;
+    .chart {
+      margin: 10px 5px 0 5px;
+    }
+  }
+
+  .divider {
+    min-height: $form-height;
+    width: 2px;
+    background-color: $text-color;
+  }
+}

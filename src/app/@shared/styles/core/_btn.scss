@@ -1,0 +1,84 @@
+/// BUTTONS
+
+.button {
+  padding: 17px 35px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  border: 0;
+
+  &:hover,
+  &:focus {
+    border: 0;
+  }
+}
+
+.primary-btn {
+  @extend .button;
+  padding: 7px 25px;
+
+  background-color: #a836bc;
+  box-shadow: 1px 0 10px -1px rgba(124, 16, 106, 0.7);
+
+  &:hover {
+    background-color: #36063d;
+  }
+
+  @media (max-width: 767px) {
+    padding: 7px 25px;
+  }
+  @media (min-width: 992px) {
+    padding: 12px 30px;
+  }
+  @media (min-width: 1200px) {
+    padding: 17px 35px;
+  }
+}
+
+.secondary-btn {
+  @extend .button;
+  padding: 7px 25px;
+
+  background-color: #f47321;
+  box-shadow: 1px 0 10px -1px rgba(228, 84, 71, 0.7);
+
+  &:hover {
+    background-color: #e65a00;
+  }
+
+  @media (max-width: 767px) {
+    padding: 7px 25px;
+  }
+
+  @media (min-width: 992px) {
+    padding: 12px 30px;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 17px 35px;
+  }
+}
+
+.btn-post {
+  @extend .button;
+  padding: 17px 22px;
+
+  background: rgba(54, 0, 61, 1);
+  background: linear-gradient(
+    40deg,
+    rgba(59, 1, 66, 0.95) 8%,
+    rgba(86, 0, 97, 0.95) 17%,
+    rgba(164, 52, 184, 0.95) 95%
+  );
+  box-shadow: 1px 0 10px -1px rgba(164, 52, 184, 0.7);
+
+  &:hover {
+    box-shadow: in 1px 0px 10px -1px rgba(0, 0, 0, 1);
+    background-color: #36063d;
+  }
+}

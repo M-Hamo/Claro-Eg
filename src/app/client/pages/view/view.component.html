@@ -1,0 +1,322 @@
+<div class="view-container" fxLayout="row wrap" fxLayoutAlign="center center" dir="rtl">
+  <h3
+    class="title text-center"
+    [ngStyle.xs]="{ 'font-size.px': 16 }"
+    [ngStyle.md]="{ 'font-size.px': 18 }"
+    fxFlex="100"
+  >
+    شقة للايجار في التجمع الخامس
+  </h3>
+
+  <div
+    class="view m-b-48 r-8"
+    fxFlex="80"
+    fxLayout="row wrap"
+    fxLayoutAlign="center start"
+  >
+    <!--  -->
+    <p-carousel
+      Class="custom-carousel"
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+      [value]="obj?.carouselItems"
+      [responsiveOptions]="responsiveOptions"
+      [numVisible]="3"
+      [numScroll]="1"
+      [autoplayInterval]="3000"
+      [circular]="true"
+      dir="ltr"
+    >
+      <ng-template let-item pTemplate="item">
+        <div
+          fxFlex="100"
+          class="carousel-photo"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <img fxFlex="90" [src]="item.photo" alt="" />
+        </div>
+      </ng-template>
+    </p-carousel>
+    <!-- end curousel -->
+    <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center start">
+      <div
+        class="half1"
+        [ngStyle.sm]="{ margin: '0 0' }"
+        [ngStyle.lt-sm]="{ margin: '0 0' }"
+        fxFlex="48"
+        fxFlex.sm="100"
+        fxFlex.lt-sm="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center start"
+      >
+        <div
+          fxFlex="90"
+          fxFlex.sm="97"
+          fxFlex.lt-sm="97"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <div
+            class="price r-4 mat-elevation-z3"
+            [ngStyle.xs]="{ 'font-size.px': 12 }"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <img
+              [ngStyle.xs]="{ 'height.px': 15, 'width.px': 15 }"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+            {{ obj.price | numberWithCommas }}
+            {{ 'main.client.currency' | translate }}
+          </div>
+          <div
+            class="like-share"
+            fxLayout="row wrap"
+            fxLayoutAlign="space-between center"
+          >
+            <button
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+              mat-raised-button
+              matTooltip="{{ 'main.client.edit' | translate }}"
+            >
+              <img src="assets/icons/pencil.svg" alt="" />
+            </button>
+            <button fxLayout="row wrap" fxLayoutAlign="center center" mat-raised-button>
+              <img src="assets/icons/heart2.svg" alt="" />
+            </button>
+            <button fxLayout="row wrap" fxLayoutAlign="center center" mat-raised-button>
+              <img src="assets/icons/share.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <mat-card
+          class="map-card mat-elevation-z3 r-8"
+          fxFlex="90"
+          fxFlex.sm="97"
+          fxFlex.lt-sm="97"
+          fxLayout="row"
+          fxLayoutAlign="space-between start"
+        >
+          <div
+            class="text"
+            fxFlex="70"
+            fxFlex.xs="55"
+            fxLayout="row wrap"
+            fxLayoutAlign="start start"
+          >
+            <div fxFlex="100" class="h-40 f-s-18 s-w-600 text-darck">
+              {{ 'main.client.location_and_view' | translate }}
+            </div>
+            <div fxFlex="100" class="h-40 m-t-4 f-s-18 s-w-500" style="color: #c74545">
+              {{ 'main.client.location_and_view' | translate }}
+            </div>
+            <div fxFlex="100" class="h-40 m-t-4 f-s-18 s-w-500" style="color: #c74545">
+              {{ 'main.client.location_and_view' | translate }}
+            </div>
+          </div>
+          <div
+            class="map"
+            fxFlex="30"
+            fxFlex.xs="40"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <div
+              fxFlex="100"
+              class="h-25 s-w-200 text-darck text-center"
+              [ngStyle.sm]="{ 'font-size.px': 12 }"
+              [ngStyle.lt-sm]="{ 'font-size.px': 10 }"
+            >
+              {{ 'main.client.show_on_map' | translate }}
+            </div>
+            <a
+              fxFlex="100"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+              (click)="openDialog()"
+            >
+              <img
+                fxFlex="70"
+                src="assets/images/6e33dd8b-d521-43b1-962d-09104e315ced.jpg"
+                alt=""
+              />
+            </a>
+          </div>
+        </mat-card>
+        <!--  -->
+        <h4
+          fxFlex="90"
+          fxFlex.sm="97"
+          fxFlex.lt-sm="97"
+          fxLayout="row wrap"
+          fxLayoutAlign="start center"
+          style="height: 40px; font-size: 18px; padding: 0; color: #c74545"
+        >
+          {{ 'main.client.description' | translate }}
+        </h4>
+        <div
+          *ngFor="let x of obj.discription_half1"
+          class="discription-item m-t-8"
+          fxFlex="90"
+          fxFlex.sm="97"
+          fxFlex.lt-sm="97"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <img [src]="x.icon" alt="" />
+            <h4>{{ x.title | translate }}</h4>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <!-- value here -->
+            <strong style="color: #c74545">500</strong>
+            <span>{{ x.unit | translate }}</span>
+          </div>
+        </div>
+      </div>
+      <!-- end half 1 -->
+      <div class="divider r-4" fxHide.sm fxHide.lt-sm></div>
+      <!--  -->
+      <div
+        class="half2"
+        [ngStyle.sm]="{ margin: '5px 0' }"
+        [ngStyle.lt-sm]="{ margin: '5px 0' }"
+        fxFlex="48"
+        fxFlex.sm="100"
+        fxFlex.lt-sm="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center start"
+      >
+        <div
+          *ngFor="let p of obj.discription_half2"
+          class="discription-item"
+          fxFlex="90"
+          fxFlex.sm="97"
+          fxFlex.lt-sm="97"
+          fxLayout="row"
+          fxLayoutAlign="space-between center"
+        >
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <h4>{{ p.title | translate }}</h4>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <!-- value here -->
+            <strong style="color: #c74545">500</strong>
+            <span>{{ p.unit | translate }}</span>
+          </div>
+        </div>
+      </div>
+      <!-- end half 2 -->
+    </div>
+    <!-- owner and important -->
+    <div
+      class="owner-container"
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <div
+        class="owner"
+        [ngStyle.sm]="{ 'padding.px': 15 }"
+        [ngStyle.lt-sm]="{ 'padding.px': 15 }"
+        fxFlex="50"
+        fxFlex.sm="100"
+        fxFlex.lt-sm="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+      >
+        <div class="img" fxLayout="row wrap" fxLayoutAlign="center center">
+          <img src="assets/images/inechtine.jpg" alt="" />
+        </div>
+        <div
+          class="name-button"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+          style="color: #024b74"
+        >
+          <!-- owner name  -->
+          <h4 fxFlex="100" class="text-center">رناد سهيل - مالك</h4>
+          <button fxLayout="row wrap" fxLayoutAlign="center center" mat-flat-button>
+            <img src="assets/icons/chat.svg" alt="" />
+            {{ 'main.client.chat' | translate }}
+          </button>
+        </div>
+      </div>
+      <div
+        class="important-info"
+        fxFlex="50"
+        fxFlex.sm="100"
+        [ngStyle.sm]="{ 'margin-top.px': 15 }"
+        fxFlex.lt-sm="100"
+        [ngStyle.lt-sm]="{ 'margin-top.px': 15 }"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <div
+          fxFlex="70"
+          class="m-l-16 m-r-16"
+          fxLayout="row wrap"
+          fxLayoutAlign="center start"
+        >
+          <div class="h-40 f-s-20 f-w-500" style="color: #c74545" fxFlex="100">
+            {{ 'main.client.important_information_for_you' | translate }}
+          </div>
+          <a class="text" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+            <img src="assets/icons/play-button.svg" alt="" />
+            {{ 'main.client.see_video' | translate }}
+          </a>
+          <a class="text" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+            <img src="assets/icons/performance.svg" alt="" />
+            {{ 'main.client.price_index_for_region' | translate }}
+          </a>
+        </div>
+        <div fxFlex="25" fxLayout="row wrap" fxLayoutAlign="center start">
+          <div
+            class="h-40 f-s-14 f-w-400 text-center"
+            style="color: #024b74"
+            fxFlex="100"
+          >
+            {{ 'main.client.region_claro_watch' | translate }}
+          </div>
+          <a
+            class="claro-clock r-4 mat-elevation-z7"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <img src="assets/icons/clock.svg" alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- owner container end -->
+    <!-- charts -->
+    <div
+      class="charts-container"
+      fxFlex="98"
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+    >
+      <h4
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="start center"
+        style="height: 40px; font-size: 18px; padding: 0; color: #c74545"
+      >
+        {{ 'main.client.area_services' | translate }}
+      </h4>
+      <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <app-radial-bar
+          class="chart"
+          *ngFor="let ch of servicesCharts"
+          [rate]="ch.rate"
+          [title]="ch.title"
+        ></app-radial-bar>
+      </div>
+    </div>
+  </div>
+</div>

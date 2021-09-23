@@ -1,0 +1,120 @@
+@import 'base';
+@import 'theme';
+@import 'grid/index';
+@import 'helpers/index';
+@import 'plugins/index';
+@import 'custom/index';
+
+html:lang(en) .navbar {
+  direction: ltr;
+}
+
+html:lang(en) .item {
+  direction: ltr;
+}
+
+// home
+html:lang(en) .banner {
+  direction: ltr;
+
+  .search {
+    direction: ltr;
+  }
+
+  .filter-container {
+    direction: ltr;
+    form {
+      direction: ltr;
+    }
+  }
+
+  .dwopdown {
+    direction: ltr !important;
+  }
+  
+  .input {
+    direction: ltr;
+  }
+
+  .selection {
+    direction: ltr;
+  }
+
+  .submit-container {
+    direction: ltr;
+
+    button {
+      margin: 0 10px;
+    }
+  }
+}
+
+//  home page
+html:lang(en) .under-content {
+  direction: ltr;
+}
+
+// profile page
+html:lang(en) .profile-container {
+  .main {
+    direction: ltr;
+  }
+}
+
+//  profile settings page
+html:lang(en) .profile-settings {
+  .form {
+    form {
+      direction: ltr;
+      mat-form-field {
+        direction: rtl !important;
+      }
+    }
+  }
+}
+
+// ads page
+html:lang(en) .ads-container {
+  direction: ltr;
+}
+
+// view page
+html:lang(en) .view-container {
+  direction: ltr;
+}
+
+// common-questions
+html:lang(en) .common-questions {
+  direction: ltr;
+}
+
+// privacy-policy
+html:lang(en) .privacy-policy {
+  direction: ltr;
+}
+
+html:lang(ar) .mat-dialog-container {
+  direction: rtl;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  border-top-color: #000000;
+  animation: spinner 0.8s linear infinite;
+}

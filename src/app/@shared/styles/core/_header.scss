@@ -1,0 +1,85 @@
+///////////////////////////////////
+@use '~@angular/material' as mat;
+// HEADER
+///////////////////////////////////
+@import '../variables';
+
+.ms-header {
+  position: relative;
+  z-index: 201;
+  display: block;
+
+  .ms-toolbar {
+    height: 64px;
+    padding: 0 8px;
+  }
+
+  // Layout control
+  .ms-header-fixed & {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.ms-toolbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
+  .ms-navbar-side.ms-header-fixed & {
+    border-bottom: unset;
+
+    @include mat.elevation(2);
+  }
+
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+}
+
+// Colorful
+.ms-header-white {
+  .ms-toolbar,
+  .ms-menubar {
+    background-color: white;
+  }
+}
+
+// Customize toolbar button
+.ms-toolbar-button {
+  &.mat-button,
+  &.mat-icon-button {
+    margin: 0 4px;
+  }
+
+  &.mat-button {
+    min-width: unset;
+    line-height: 40px;
+    border-radius: 999px;
+  }
+
+  &.ms-avatar-button {
+    display: block;
+    padding: 0 4px;
+    font-size: 0;
+
+    .ms-username {
+      margin: 0 8px;
+      font-size: 14px;
+    }
+  }
+}
+
+@mixin ms-toolbar-button-theme($theme) {
+  $background: mat.get-color-from-palette($theme, 'background');
+
+  .ms-toolbar-button {
+    &.mat-icon-button {
+      &:hover {
+        background-color: mat.get-color-from-palette($background, hover);
+      }
+    }
+  }
+}

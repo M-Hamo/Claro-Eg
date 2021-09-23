@@ -1,0 +1,104 @@
+@mixin main-scrollbar() {
+  // width
+  ::-webkit-scrollbar {
+    height: 6px;
+    width: 10px;
+  }
+
+  // Track
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.3);
+  }
+
+  // Handle button
+  ::-webkit-scrollbar-thumb {
+    background-color: #6e6e6e;
+    outline: 1px solid #444;
+
+    &:hover {
+      background: #555;
+    }
+  }
+}
+
+@mixin scrollbar($fg, $bg, $size, $border-radius: 999px) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb {
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px inset;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $fg;
+    cursor: pointer;
+    border-radius: $border-radius;
+    min-height: 20px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+@mixin scrollbar-thin {
+  @include scrollbar(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1), 6px);
+}
+
+@mixin scrollbar-none {
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+// TODO:
+
+// .scrollbox {
+//   width: 10em;
+//   height: 10em;
+//   overflow: auto;
+//   visibility: hidden;
+// }
+
+// .scrollbox-content,
+// .scrollbox:hover,
+// .scrollbox:focus {
+//   visibility: visible;
+// }
+
+// .scrollbox_delayed {
+//   transition: visibility 0.2s;
+// }
+
+// .scrollbox_delayed:hover {
+//   transition: visibility 0s 0.2s;
+// }
+
+// <h2>Hover it</h2>
+// <div class="scrollbox" tabindex="0">
+//   <div class="scrollbox-content">Hover me! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere velit, repellat voluptas ipsa impedit fugiat voluptatibus. Facilis deleniti, nihil voluptate perspiciatis iure adipisci magni, nisi suscipit aliquam, quam, et excepturi! Lorem
+//     ipsum dolor sit amet, consectetur adipisicing elit. Facere velit, repellat voluptas ipsa impedit fugiat voluptatibus. Facilis deleniti, nihil voluptate perspiciatis iure adipisci magni, nisi suscipit aliquam, quam, et excepturi!</div>
+// </div>
+
+// <h2>With delay</h2>
+// <div class="scrollbox scrollbox_delayed" tabindex="0">
+//   <div class="scrollbox-content">Hover me! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere velit, repellat voluptas ipsa impedit fugiat voluptatibus. Facilis deleniti, nihil voluptate perspiciatis iure adipisci magni, nisi suscipit aliquam, quam, et excepturi! Lorem
+//     ipsum dolor sit amet, consectetur adipisicing elit. Facere velit, repellat voluptas ipsa impedit fugiat voluptatibus. Facilis deleniti, nihil voluptate perspiciatis iure adipisci magni, nisi suscipit aliquam, quam, et excepturi!</div>
+// </div>

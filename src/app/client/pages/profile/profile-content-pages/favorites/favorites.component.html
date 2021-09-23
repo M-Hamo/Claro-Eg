@@ -1,0 +1,83 @@
+<div class="favorite-container" fxLayout="row wrap" fxLayoutAlign="center center">
+  <h3 fxFlex="100">{{ 'main.client.ads' | translate }}</h3>
+  <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card
+      class="item"
+      fxFlex="40"
+      fxFlex.md="80"
+      fxFlex.sm="80"
+      fxFlex.lt-sm="80"
+      fxLayout="row wrap"
+      fxLayoutAlign="center start"
+      *ngFor="let item of claroItems"
+    >
+      <div
+        class="banner"
+        fxFlex="100"
+        fxLayout="column"
+        fxLayoutAlign="space-between center"
+      >
+        <!--  -->
+        <div class="heart" fxFlex="100" fxLayout="row" fxLayoutAlign="end center">
+          <a (click)="hitLove()" fxLayout="row" fxLayoutAlign="center center">
+            <img
+              src="{{ item.love ? 'assets/icons/heart2.svg' : 'assets/icons/Heart.svg' }}"
+              alt=""
+            />
+          </a>
+        </div>
+        <img class="background" [src]="item?.photo" alt="" />
+        <!--  -->
+        <div class="claro" fxFlex="100" fxLayout="row" fxLayoutAlign="start center">
+          <div class="badge" fxLayout="row" fxLayoutAlign="center center">
+            Claro <img src="assets/icons/path.svg" alt="" />
+            <!-- some thing here -->
+          </div>
+        </div>
+      </div>
+
+      <div class="details" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+        <div class="line" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="start center">
+          <strong>{{ item?.type }}</strong>
+
+          <p fxLayout="row " fxLayoutAlign="center center">
+            <img src="assets/icons/Mask Group 9.svg" alt="" />{{ item?.location }}
+          </p>
+        </div>
+        <div class="line" fxFlex="100" fxLayout="row " fxLayoutAlign="start center">
+          <strong fxLayout="row " fxLayoutAlign="center center"
+            ><img src="assets/icons/Mask Group 109.svg" alt="" />7000,000 ج.م</strong
+          >
+          <p *ngIf="item?.negotiable">{{ 'main.client.negotiable' | translate }}</p>
+          <p *ngIf="!item?.negotiable">{{ 'main.client.non_negotiable' | translate }}</p>
+        </div>
+        <div class="line line3" fxFlex="100" fxLayout="row " fxLayoutAlign="start center">
+          <strong
+            ><img src="assets/icons/Mask Group 7.svg" alt="" />{{ item?.bedNum }}</strong
+          >
+
+          <strong fxLayout="row " fxLayoutAlign="start center" style="margin: 0 5px"
+            ><img src="assets/icons/Mask Group 8.svg" alt="" />{{ item?.pathNum }}</strong
+          >
+
+          <strong fxLayout="row " fxLayoutAlign="start center" style="margin: 0 5px">
+            <img src="assets/icons/Mask Group 6.svg" alt="" />{{ item?.size }}</strong
+          >
+          م2
+        </div>
+        <div class="preview" fxFlex="100" fxLayout="row" fxLayoutAlign="end center">
+          <img
+            *ngIf="!item?.preview || !item?.preview"
+            src="assets/icons/preview.png"
+            alt=""
+          />
+          <img
+            *ngIf="item?.preview && item?.preview"
+            src="assets/icons/done.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

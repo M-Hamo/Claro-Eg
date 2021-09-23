@@ -1,0 +1,138 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$photo-size: 117px;
+$input-height: 50px;
+$input-background-color: rgba(230, 230, 230, 0.171);
+.side-button {
+  height: 50px;
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom: 1.5px solid $text-color !important;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  mat-icon {
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    margin: 0 8px;
+    color: #0000008a;
+  }
+}
+.side-button:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+/***************/
+
+// activated tap
+.activeLink {
+  height: 50px;
+  padding: 10px;
+  border-radius: 5px;
+  border-bottom: 1.5px solid $text-color !important;
+  outline: none;
+  border: none;
+  background-color: whitesmoke;
+  mat-icon {
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    margin: 0 8px;
+    color: #0000008a;
+  }
+  .title {
+    color: #c74545;
+  }
+}
+/***************/
+.chatActive {
+  .title {
+    color: #c74545;
+  }
+}
+/***************/
+.title {
+  color: $text-color;
+  font-size: 16px;
+  img {
+    height: 20px;
+    width: 20px;
+  }
+}
+.mat-form-field + .mat-form-field {
+  margin: 0 0 0 8px;
+}
+mat-accordion {
+  margin: 0;
+}
+mat-expansion-panel {
+  outline: none;
+  border: none;
+  border-bottom: 1.5px solid $text-color !important;
+  img {
+    height: 20px;
+    width: 20px;
+  }
+  .title {
+    margin: 0 5px;
+  }
+
+  // chat box
+  .chat-box {
+    min-height: 60px;
+    max-height: 400px;
+    overflow-y: scroll;
+    .item {
+      height: 55px;
+      padding: 0 10px;
+      // margin: 5px 0;
+      border-bottom: 0.5px solid rgb(228, 228, 228);
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .item:hover {
+      cursor: pointer;
+      border-radius: 10px;
+      background-color: whitesmoke;
+    }
+  }
+}
+/***************/
+
+.ad-taps-container {
+  // min-height: 200px;
+  .tap {
+    height: 50px;
+    padding: 10px;
+    font-size: 15px;
+    color: $text-color;
+    outline: none;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1.5px solid $text-color !important;
+    img {
+      height: 20px;
+      width: 20px;
+    }
+    mat-icon {
+      height: 20px;
+      width: 20px;
+      font-size: 20px;
+      margin: 0;
+      color: #0000008a;
+    }
+  }
+  .tap:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+  }
+}
+/***************/

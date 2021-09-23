@@ -1,0 +1,39 @@
+$color:#024b74;
+.container {
+  position: relative;
+  height: 50vh;
+  z-index: 99;
+}
+
+.logo {
+  margin-top: 20px;
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.title {
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  color: $color;
+
+}
+
+.buttons{
+  button{
+    height: 38px;
+    min-width: 150px;
+    text-align: center;
+    font-size: 18px;
+    color: $color;
+    border: 2px solid $color;
+    img{
+      height: 20px;
+      width: 20px;
+      margin: 0 5px;
+      border-radius: 50px;
+    }
+  }
+}

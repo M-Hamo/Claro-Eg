@@ -1,0 +1,131 @@
+$text-color: #024b74;
+
+.item {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  direction: rtl;
+  transition: all 0.5s ease;
+  .banner {
+    position: relative;
+    opacity: 1;
+  }
+  .background {
+    position: relative;
+    height: 250px;
+    // min-height: 250px;
+    width: 100%;
+    object-fit: cover;
+    background-size: contain;
+    border-radius: 10px;
+  }
+
+  .heart {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    z-index: 10;
+    a {
+      width: 40px;
+      height: 40px;
+      margin: 0 10px;
+      outline: none;
+      border: none;
+      background-color: transparent;
+    }
+    img {
+      width: 25px;
+      height: 25px;
+    }
+    a:hover {
+      cursor: pointer;
+    }
+  }
+  .claro {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    z-index: 10;
+
+    .badge {
+      min-width: 80px;
+      height: 30px;
+      border-radius: 5px;
+      margin: 0 10px;
+      color: $text-color;
+      font-size: larger;
+      background-color: rgba(255, 255, 255, 0.851);
+      img {
+        width: 15px;
+        height: 15px;
+        margin: 0 5px;
+      }
+    }
+  }
+  .line {
+    opacity: 1;
+
+    color: $text-color;
+    padding: 0 10px;
+    strong {
+      padding: 0;
+      img {
+        height: 17px;
+        width: 17px;
+        margin: 0 3px;
+      }
+    }
+    p {
+      font-size: 14px;
+      margin: 5px 15px;
+    }
+    img {
+      height: 17px;
+      width: 17px;
+      margin: 0 10px;
+    }
+  }
+
+  .preview {
+    position: relative;
+    top: -35px;
+    opacity: 1;
+
+    border-radius: 50%;
+    height: 0px;
+    img {
+      width: 50px;
+      height: 50px;
+      margin: 0 10px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+  }
+}
+
+// .fade {
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+//   transition: all 0.5s ease;
+//   z-index: 15;
+//   opacity: 0;
+//   background-color: rgba(255, 255, 255, 0.286);
+//   img{
+//     opacity: .7;
+//     height: 120px;
+//   }
+// }
+
+// .item:hover {
+//   cursor: pointer;
+//   .banner,
+//   .line,
+//   .preview {
+//     opacity: 0.3;
+//   }
+// }
+// .item:hover .fade {
+//   opacity: 1;
+// }

@@ -1,0 +1,1000 @@
+<div class="ads-container" fxLayout="row wrap" fxLayoutAlign="center center" dir="rtl">
+  <form
+    [formGroup]="adForm"
+    (ngSubmit)="submit(adForm)"
+    fxFlex="100"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    <h3 class="title text-center h-60" fxFlex="100">
+      {{ 'main.header.add_post' | translate }}
+    </h3>
+    <div
+      class="form-container m-b-48 r-8 p-16"
+      fxFlex="80"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center start">
+        <h4 class="align-middle h-50" fxFlex="100">
+          {{ 'main.client.add_photo_video_pdf' | translate }}
+        </h4>
+        <div
+          class="media-picker-container"
+          fxFlex="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-evenly center"
+        >
+          <label
+            *ngFor="let p of filePicker"
+            class="media-picker-item r-8"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+            [for]="p.id"
+            ><div
+              *ngIf="!p.file && !p.msg"
+              fxFill
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+            >
+              +
+            </div>
+            <div
+              *ngIf="p.file || p.msg"
+              fxFlex="100"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+            >
+              <img
+                class="image-full"
+                [src]="p.imageShow"
+                *ngIf="p.type.includes('image')"
+              />
+              <img src="assets/icons/pdf.svg" *ngIf="p.type.includes('pdf')" />
+              <img src="assets/icons/video.svg" *ngIf="p.type.includes('video')" />
+              <div
+                *ngIf="p.msg"
+                class="text-center f-s-16 text-red-500"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+              >
+                {{ p.msg | translate }}<mat-icon style="color: red">warning</mat-icon>
+              </div>
+            </div>
+            <input
+              type="file"
+              [id]="p.id"
+              #input
+              (change)="onSelectFile($event, input.files, p.id)"
+              hidden
+            />
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <!--  -->
+
+      <div
+        class="form"
+        [ngStyle.sm]="{ 'margin-top.px': 30 }"
+        [ngStyle.lt-sm]="{ 'margin-top.px': 30 }"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-between start"
+      >
+        <div
+          class="important p-t-16"
+          fxFlex="48"
+          fxFlex.sm="100"
+          fxFlex.lt-sm="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="center start"
+        >
+          <mat-radio-group
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="space-evenly center"
+            formControlName="residentialOrNot"
+          >
+            <mat-radio-button
+              class="btn mat-elevation-z2"
+              fxFLex="40"
+              value="residential"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.residential' | translate }}</div></mat-radio-button
+            >
+            <mat-radio-button
+              class="btn mat-elevation-z2"
+              fxFLex="40"
+              value="non_residential"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+              ><div>
+                {{ 'main.client.non_residential' | translate }}
+              </div></mat-radio-button
+            >
+          </mat-radio-group>
+
+          <!--  -->
+          <div
+            *ngFor="let x of dropdown"
+            class="dwopdown"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <p-dropdown
+              *ngIf="x.disabeld"
+              fxFill
+              [options]="x.cities"
+              placeholder="{{ x.placeHolder | translate }}"
+              optionLabel="name"
+              [showClear]="true"
+            ></p-dropdown>
+          </div>
+          <!--  -->
+          <mat-radio-group
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="space-evenly center"
+            formControlName="forSale_forRent_or_both"
+          >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              value="forSale"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.for_sale' | translate }}</div></mat-radio-button
+            >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              value="forRent"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.for_rent' | translate }}</div></mat-radio-button
+            >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              value="both"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.both' | translate }}</div></mat-radio-button
+            >
+          </mat-radio-group>
+          <!--  -->
+          <mat-radio-group
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="space-evenly center"
+          >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              fxFlex.lg="45"
+              fxFlex.md="45"
+              value="residential"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.villa_land' | translate }}</div></mat-radio-button
+            >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              fxFlex.lg="45"
+              fxFlex.md="45"
+              value="non_residential"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.building_land' | translate }}</div></mat-radio-button
+            >
+          </mat-radio-group>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-20 align-middle" fxFlex="100">
+              {{ 'main.client.payment_method' | translate }}
+            </div>
+            <mat-radio-group
+              fxFlex="90"
+              fxFlex.sm="97"
+              fxFlex.lt-sm="97"
+              fxLayout="row wrap"
+              fxLayoutAlign="space-evenly center"
+              formControlName="paymentMethod"
+            >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="cash"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.cash' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="installment"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.installment' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="both"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.both' | translate }}</div></mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <!--  -->
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.asking_price' | translate }}"
+            />
+          </div>
+
+          <!--  -->
+          <mat-radio-group
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="space-evenly center"
+          >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              fxFlex.lg="45"
+              fxFlex.md="45"
+              value="residential"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.negotiable' | translate }}</div></mat-radio-button
+            >
+            <mat-radio-button
+              class="btn btn-min mat-elevation-z2"
+              fxFlex.lg="45"
+              fxFlex.md="45"
+              value="non_residential"
+              fxLayout="row"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.non_negotiable' | translate }}</div></mat-radio-button
+            >
+          </mat-radio-group>
+
+          <!--  -->
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.paid_fee' | translate }}"
+            />
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-80 align-middle" fxFlex="100">
+              {{ 'main.client.remaining_installments' | translate }}
+            </div>
+            <mat-radio-group
+              fxFlex="90"
+              fxFlex.sm="97"
+              fxFlex.lt-sm="97"
+              fxLayout="row wrap"
+              fxLayoutAlign="space-evenly center"
+            >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.exist' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="non_residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.not_exist' | translate }}</div></mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <!--  -->
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.number_remaining_installments' | translate }}"
+            />
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-80 align-middle" fxFlex="100">
+              {{ 'main.client.price_includes_maintenance_deposit' | translate }}
+            </div>
+            <mat-radio-group
+              fxFlex="90"
+              fxFlex.sm="97"
+              fxFlex.lt-sm="97"
+              fxLayout="row wrap"
+              fxLayoutAlign="space-evenly center"
+              formControlName="priceIncludesMaintenanceDeposit"
+            >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="yes"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.yes' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="no"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.no' | translate }}</div></mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <!--  -->
+          <div
+            *ngIf="depositAmount"
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+
+            <input
+              id="depositAmount"
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{
+                'main.client.amount_of_the_maintenance_deposit' | translate
+              }}"
+              formControlName="depositAmount"
+            />
+          </div>
+          <mat-error
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            {{ displayErrorMessage.depositAmount }}
+          </mat-error>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-80 align-middle" fxFlex="100">
+              {{ 'main.client.interval' | translate }}
+            </div>
+            <!--  -->
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+              <div
+                class="dwopdown"
+                fxFlex="48"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+              >
+                <p-dropdown
+                  fxFill
+                  [options]="intervalDropDown"
+                  placeholder="{{ 'main.client.month' | translate }}"
+                  optionLabel="title"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+              <fieldset
+                class="interval-item fieldset"
+                fxFlex="48"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+              >
+                <legend class="f-s-12 align-middle w-30 p-l-8 p-r-8 r-8">
+                  {{ 'main.client.year' | translate }}
+                </legend>
+                <input type="number" fxFill />
+              </fieldset>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 6.svg"
+              alt=""
+            />
+
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.space' | translate }}"
+            />
+          </div>
+
+          <div
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+          >
+            <div class="input" fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+              <img
+                fxFlex
+                [ngStyle.sm]="{ margin: '0px 3px' }"
+                [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+                src="assets/icons/Mask Group 6.svg"
+                alt=""
+              />
+
+              <input
+                fxFlex="98"
+                style="text-indent: 0"
+                type="number"
+                placeholder="{{ 'main.client.space' | translate }}"
+              />
+            </div>
+
+            <div class="input" fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+              <img
+                fxFlex
+                [ngStyle.sm]="{ margin: '0px 3px' }"
+                [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+                src="assets/icons/Mask Group 6.svg"
+                alt=""
+              />
+
+              <input
+                fxFlex="98"
+                style="text-indent: 0"
+                type="number"
+                placeholder="{{ 'main.client.space' | translate }}"
+              />
+            </div>
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-20 align-middle" fxFlex="100">
+              {{ 'main.client.insurance' | translate }}
+            </div>
+            <!--  -->
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+              <div class="input" fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+                <input
+                  fxFlex="100"
+                  style="text-indent: 0"
+                  type="number"
+                  placeholder="{{ 'main.client.space' | translate }}"
+                />
+              </div>
+              <div
+                class="dwopdown"
+                fxFlex="48"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+              >
+                <p-dropdown
+                  fxFill
+                  [options]="intervalDropDown"
+                  placeholder="{{ 'main.client.month' | translate }}"
+                  optionLabel="title"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-20 align-middle" fxFlex="100">
+              {{ 'main.client.owners_union_maintenance' | translate }}
+            </div>
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+              <div
+                class="dwopdown"
+                fxFlex="48"
+                fxLayout="row wrap"
+                fxLayoutAlign="center center"
+              >
+                <p-dropdown
+                  fxFill
+                  [options]="intervalDropDown"
+                  placeholder="{{ 'main.client.month' | translate }}"
+                  optionLabel="title"
+                  [showClear]="true"
+                ></p-dropdown>
+              </div>
+              <!--  -->
+              <div class="input" fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+                <input
+                  fxFlex="100"
+                  style="text-indent: 0"
+                  type="number"
+                  placeholder="{{ 'main.client.space' | translate }}"
+                />
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 6.svg"
+              alt=""
+            />
+
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.space' | translate }}"
+              formControlName="space"
+            />
+          </div>
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 6.svg"
+              alt=""
+            />
+
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.Net_space_is_optional' | translate }}"
+              formControlName="netSpace"
+            />
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-80 align-middle" fxFlex="100">
+              {{ 'main.client.share_in_land' | translate }}
+            </div>
+            <mat-radio-group
+              fxFlex="90"
+              fxFlex.sm="97"
+              fxFlex.lt-sm="97"
+              fxLayout="row wrap"
+              fxLayoutAlign="space-evenly center"
+            >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.yes' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="non_residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.no' | translate }}</div></mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-80 align-middle" fxFlex="100">
+              {{ 'main.client.construction_condition' | translate }}
+            </div>
+            <mat-radio-group
+              fxFlex="90"
+              fxFlex.sm="97"
+              fxFlex.lt-sm="97"
+              fxLayout="row wrap"
+              fxLayoutAlign="space-evenly center"
+            >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.finished' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="non_residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>
+                  {{ 'main.client.under_construction' | translate }}
+                </div></mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <!--  -->
+          <div
+            class="interval"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+          >
+            <div class="interval-item f-s-16 f-w-700 h-80 align-middle" fxFlex="100">
+              {{ 'main.client.subject_to_operation' | translate }}
+            </div>
+            <mat-radio-group
+              fxFlex="90"
+              fxFlex.sm="97"
+              fxFlex.lt-sm="97"
+              fxLayout="row wrap"
+              fxLayoutAlign="space-evenly center"
+            >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.yes' | translate }}</div></mat-radio-button
+              >
+              <mat-radio-button
+                class="btn btn-min mat-elevation-z2"
+                value="non_residential"
+                fxLayout="row"
+                fxLayoutAlign="center center"
+                ><div>{{ 'main.client.no' | translate }}</div></mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+          <!--  -->
+          <div
+            class="input"
+            fxFlex="90"
+            fxFlex.sm="97"
+            fxFlex.lt-sm="97"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <img
+              fxFlex
+              [ngStyle.sm]="{ margin: '0px 3px' }"
+              [ngStyle.lt-sm]="{ margin: '0px 3px' }"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+
+            <input
+              fxFlex="98"
+              style="text-indent: 0"
+              type="number"
+              placeholder="{{ 'main.client.day_sales' | translate }}"
+            />
+          </div>
+          <!--  -->
+        </div>
+        <div class="divider r-4" fxHide.sm fxHide.lt-sm></div>
+        <!--  -->
+        <!--  -->
+        <div
+          class="more-details p-t-16"
+          [ngStyle.sm]="{ 'margin-top.px': 20 }"
+          [ngStyle.lt-sm]="{ 'margin-top.px': 20 }"
+          fxFlex="48"
+          fxFlex.sm="100"
+          fxFlex.lt-sm="100"
+          fxLayout="row wrap"
+          fxLayoutAlign="center start"
+        ></div>
+      </div>
+    </div>
+
+    <div
+      class="map r-8 p-16"
+      fxFlex="80"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <app-esri-map
+        fxFlex="100"
+        [center]="mapCenter"
+        [basemap]="basemapType"
+        [zoom]="mapZoomLevel"
+        (mapLoaded)="mapLoadedEvent($event)"
+      ></app-esri-map>
+    </div>
+
+    <div
+      class="claro-service r-8 p-16"
+      fxFlex="80"
+      fxLayout="row wrap"
+      fxLayoutAlign="start center"
+      fxLayoutAlign.sm="center center"
+      fxLayoutAlign.lt-sm="center center"
+    >
+      <div class="h-20 f-s-24 f-w-600" style="color: #024b74">
+        {{ 'main.client.claro_service' | translate }}
+        <i class="pi pi-info-circle m-r-8 m-l-8"></i>
+      </div>
+    </div>
+
+    <div
+      class="m-b-48"
+      fxFlex="80"
+      fxLayout="row wrap"
+      fxLayoutAlign="space-evenly center"
+    >
+      <div
+        class="degree mat-elevation-z8"
+        fxFlex="30"
+        fxFlex.sm="90"
+        fxFlex.lt-sm="90"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+      >
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+          <h3 class="f-w-600 f-s-16 h-25">
+            {{ 'main.client.real_estate_with_credibility' | translate }}
+          </h3>
+          <span>Claro</span>
+          <img src="assets/icons/path.svg" alt="" />
+        </div>
+        <div fxFlex="60" fxLayout="row" fxLayoutAlign="center center">
+          <div class="sale-line" fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+            <img
+              style="height: 20px; width: 20px"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+            <h3 class="f-w-600 f-s-16 h-25">
+              000
+              {{ 'main.client.currency' | translate }}
+            </h3>
+          </div>
+          <div fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+            <img
+              style="height: 20px; width: 20px"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+            <h3 class="f-w-600 f-s-16 h-25">
+              000
+              {{ 'main.client.currency' | translate }}
+            </h3>
+          </div>
+        </div>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+          <label
+            [ngClass]="previewButton ? 'clicked-label' : 'label'"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+            for="preview"
+          >
+            {{ 'main.client.request_preview' | translate }}
+            <input id="preview" type="checkbox" formControlName="requestPreview" hidden />
+          </label>
+        </div>
+      </div>
+      <!--  -->
+      <div
+        class="degree mat-elevation-z8"
+        fxFlex="30"
+        fxFlex.sm="90"
+        fxFlex.lt-sm="90"
+        fxLayout="row wrap"
+        fxLayoutAlign="center center"
+      >
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+          <h3 class="f-w-600 f-s-16 h-25">
+            {{ 'main.client.real_estate_with_credibility' | translate }}
+          </h3>
+          <span>Claro</span>
+          <img src="assets/icons/Group 1295.svg" alt="" />
+        </div>
+
+        <div fxFlex="60" fxLayout="row" fxLayoutAlign="center center">
+          <div class="sale-line" fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+            <img
+              style="height: 20px; width: 20px"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+            <h3 class="f-w-600 f-s-16 h-25">
+              000
+              {{ 'main.client.currency' | translate }}
+            </h3>
+          </div>
+          <div fxFlex="48" fxLayout="row" fxLayoutAlign="center center">
+            <img
+              style="height: 20px; width: 20px"
+              src="assets/icons/Mask Group 109.svg"
+              alt=""
+            />
+            <h3 class="f-w-600 f-s-16 h-25">
+              000
+              {{ 'main.client.currency' | translate }}
+            </h3>
+          </div>
+        </div>
+        <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+          <label
+            [ngClass]="previewButton ? 'clicked-label' : 'label'"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+            for="appraisal"
+          >
+            {{ 'main.client.request_appraisal' | translate }}
+            <input
+              id="appraisal"
+              type="checkbox"
+              formControlName="requestAppraisal"
+              hidden
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+    *ngIf="editAd"
+      fxFlex="50"
+      fxFlex.sm="70"
+      fxFlex.lt-sm="70"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+    >
+      <label
+        [class]="showAd ? 'show-ad' : 'not-show-ad'"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        for="showAd"
+      >
+        <div *ngIf="!showAd" fxLayout="row" fxLayoutAlign="center center">
+          {{ 'main.client.show_ad' | translate }}
+          <img src="assets/icons/megaphone_white.svg" alt="" />
+        </div>
+        <div *ngIf="showAd" fxLayout="row" fxLayoutAlign="center center">
+          {{ 'main.client.cancel_ad' | translate }}
+          <img src="assets/icons/mute.svg" alt="" />
+        </div>
+        <input id="showAd" type="checkbox" formControlName="showAd" hidden />
+      </label>
+    </div>
+    <div class="post" fxFlex="80" fxLayout="row wrap" fxLayoutAlign="center center">
+      <button class="post-button" mat-flat-button type="submit">
+        {{ 'main.client.post_the_ad' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

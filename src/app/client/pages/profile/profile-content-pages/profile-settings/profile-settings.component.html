@@ -1,0 +1,236 @@
+<div class="profile-settings" fxLayout="row wrap" fxLayoutAlign="center center">
+  <h3 fxFlex="100">{{ 'main.client.profile_settings' | translate }}</h3>
+  <div class="photo" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <div class="img-pick" fxLayout="row wrap" fxLayoutAlign="center center">
+      <img src="assets/images/inechtine.jpg" alt="" />
+    </div>
+  </div>
+  <div class="form" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="saveChanges(profileForm)"
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <div
+        class="line1"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-around center"
+      >
+        <div
+          class="half1"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <label fxFlex="100" for="inp1">{{ 'main.client.name' | translate }}</label>
+          <div
+            class="input"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <input
+              id="inp1"
+              fxFill
+              type="text"
+              style="text-indent: 0"
+              required
+              formControlName="name"
+            />
+          </div>
+        </div>
+        <div
+          class="half2"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <label fxHide fxFlex="100" for="inp2">{{
+            'main.client.password' | translate
+          }}</label>
+          <div
+            fxHide
+            class="input"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <input
+              id="inp2"
+              fxFlex
+              style="text-indent: 0"
+              required
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button class="pass-visible" mat-icon-button matSuffix (click)="hide = !hide">
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="line2"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-around center"
+      >
+        <div
+          class="half1"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <label fxFlex="100" for="inp3" fxLayout="row wrap" fxLayoutAlign="start center"
+            >{{ 'main.client.phone_number' | translate }}
+            <div fxFlex style="font-size: 10px">
+              ({{ 'main.client.claro_phone_number_privacy' | translate }})
+            </div></label
+          >
+          <div
+            class="input"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+          >
+            <input
+              id="inp3"
+              fxFill
+              type="text"
+              style="text-indent: 0"
+              required
+              formControlName="phoneNumber"
+            />
+          </div>
+        </div>
+        <div
+          class="half2"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <label fxFlex="100" for="inp4">{{ 'main.client.email' | translate }}</label>
+          <div
+            class="input"
+            fxFlex="100"
+            fxLayout="row wrap"
+            fxLayoutAlign="center center"
+            matTooltip="{{ 'main.client.disabled_field' | translate }}"
+          >
+            <input
+              id="inp4"
+              fxFill
+              type="email"
+              style="text-indent: 0"
+              required
+              formControlName="email"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="line3"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-around center"
+      >
+        <div
+          fxHide
+          class="half1"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="space-between center"
+        >
+          <label fxFlex="18" for="btn">{{ 'main.client.adjective' | translate }}</label>
+
+          <mat-radio-group
+            class="adjective"
+            fxFlex="70"
+            fxFlex.sm="100"
+            fxFlex.lt-sm="100"
+            [ngStyle.sm]="{ 'margin.px': 15 }"
+            [ngStyle.lt-sm]="{ 'margin.px': 15 }"
+            fxLayout="row"
+            fxLayoutAlign="center center"
+          >
+            <mat-radio-button
+              class="btn mat-elevation-z2"
+              style="margin: 0 15px"
+              value="1"
+              fxFlex="100"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.owner' | translate }}</div></mat-radio-button
+            >
+            <mat-radio-button
+              class="btn mat-elevation-z2"
+              value="2"
+              fxFlex="100"
+              fxLayout="row wrap"
+              fxLayoutAlign="center center"
+              ><div>{{ 'main.client.owner' | translate }}</div></mat-radio-button
+            >
+          </mat-radio-group>
+        </div>
+
+        <div
+          class="half2"
+          [ngStyle.sm]="{ 'margin.px': 15 }"
+          [ngStyle.lt-sm]="{ 'margin.px': 15 }"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <button fxFlex="50" class="submit" mat-flat-button type="submit">
+            {{ 'main.client.save_changes' | translate }}
+          </button>
+        </div>
+      </div>
+      <!-- <div
+        class="line4"
+        fxFlex="100"
+        fxLayout="row wrap"
+        fxLayoutAlign="space-around center"
+      >
+        <div
+          class="half1"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        >
+          <mat-form-field appearance="outline" fxFlex="100" >
+            <mat-label>{{ 'main.client.son_ses' | translate }}</mat-label>
+            <mat-select>
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div
+          class="half2"
+          fxFlex="45"
+          fxFlex.sm="90"
+          fxFlex.lt-sm="90"
+          fxLayout="row wrap"
+          fxLayoutAlign="center center"
+        ></div>
+      </div> -->
+    </form>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div
+  class="container"
+  fxFlex.sm="100"
+  fxFlex.lt-sm="100"
+  fxLayout="row wrap"
+  fxLayoutAlign="center space-evenly"
+>
+  <div class="logo" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    <img src="assets/images/logo.png" alt="" />
+  </div>
+
+  <div class="title" fxFlex="100" fxLayout="row wrap" fxLayoutAlign="center center">
+    {{ 'main.client.claro_real_estate' | translate }}
+  </div>
+
+  <div
+    class="text-s-20"
+    fxFlex="100"
+    style="height: 30px; color: #024b74"
+    fxLayout="row wrap"
+    fxLayoutAlign="center center"
+  >
+    {{ 'main.client.continue' | translate }}
+  </div>
+  <div
+    class="buttons"
+    fxFlex="60"
+    fxLayout="column"
+    fxLayoutAlign="center space-around"
+    fxLayoutGap="12px"
+    *ngIf="!notFound"
+  >
+    <button
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      mat-flat-button
+      type="button"
+      (click)="login(facebookProvider)"
+      [disabled]="!isReady"
+    >
+      Facebook
+      <img src="assets/icons/facebook.svg" alt="" />
+    </button>
+    <button
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      mat-flat-button
+      type="button"
+      (click)="login(googleProvider)"
+      [disabled]="!isReady"
+    >
+      Google
+      <img src="assets/icons/google-symbol.svg" alt="" />
+    </button>
+    <button
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      mat-flat-button
+      type="button"
+      [disabled]="true"
+    >
+      Apple
+      <img src="assets/icons/apple.svg" alt="" />
+    </button>
+  </div>
+  <div class="w-100 text-center p-16">
+    <form (ngSubmit)="register()" [formGroup]="form" *ngIf="notFound">
+      <div fxLayout="column">
+        <div class="flex flex-col sm:flex-row">
+          <mat-form-field
+            *ngIf="'main.social.phone_number' | translate as phone_number"
+            class="flex-auto"
+          >
+            <mat-label>{{ phone_number }}</mat-label>
+            <input formControlName="phoneNumber" matInput />
+            <mat-error *ngIf="form.get('phoneNumber').hasError('required')">{{
+              'main.errorMessages.required' | translate: { field: phone_number }
+            }}</mat-error>
+            <mat-error *ngIf="form.get('phoneNumber').hasError('validation')">{{
+              form.get('phoneNumber').errors.validation
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="m-t-10" align="center">
+        <button
+          [disabled]="!form.valid || loading"
+          [class.spinner]="loading"
+          color="primary"
+          mat-raised-button
+          type="submit"
+        >
+          <span [class.p-3]="loading">{{
+            !loading ? ('main.social.register' | translate) : ''
+          }}</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

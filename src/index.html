@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <base href="/" version="1.0" />
+
+    <title>Claro</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+      .global-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1999;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .global-loader-fade-in {
+        opacity: 0;
+      }
+
+      .global-loader-hidden {
+        display: none;
+      }
+
+      .global-loader p {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+          Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        font-weight: normal;
+        font-size: 30px;
+        letter-spacing: 0.04rem;
+        white-space: pre;
+
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: repeating-linear-gradient(
+          to right,
+          #f44336,
+          #9c27b0,
+          #3f51b5,
+          #03a9f4,
+          #009688,
+          #8bc34a,
+          #ffeb3b,
+          #ff9800
+        );
+        background-size: 750% auto;
+        background-position: 0 100%;
+        animation: gradient 20s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+      }
+
+      @keyframes gradient {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: -750% 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <app-root></app-root>
+    <div id="globalLoader" class="global-loader">
+      <p style="font-size: 80px">...</p>
+    </div>
+  </body>
+
+</html>
+<!--
+  Developed by:
+                                           $$$   $$$
+-- Ibrahim Gamal (Full Stack Developer)   $$$$$ $$$$$
+-- Mohamed Eldieb (Frontend Developer)    $$$$$$$$$$$
+-- Ahmed Gamal (Mobile   Developer)         $$$$$$$
+-- Ahmed Ehab (Backend  Developer)           $$$
+-- Haitham Elsaid (Backend Developer)          $
+-- Motaz Hamdy (Frontend Developer)          ¸.•´¸.•*¸.•*´¨`*•.♥
+                                             *.¸¸.•*¨`
+
+ -->

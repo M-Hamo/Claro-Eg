@@ -1,0 +1,126 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$dropdown-height: 6.75vh;
+$activeIconColor: #f66464;
+/**************/
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$dropdown-height: 6.75vh;
+$activeIconColor: #f66464;
+.icon-container {
+  .icon {
+    position: relative;
+    width: 80px;
+    min-height: 80px;
+    margin: 8px 0;
+    border-radius: 10px;
+    .img {
+      margin-top: 10px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid $text-color;
+      img {
+        height: 30px;
+      }
+    }
+    h3 {
+      margin-top: 5px;
+      color: $text-color;
+      font-size: 12px;
+      line-height: 18px;
+      text-align: center;
+    }
+    mat-icon {
+      position: absolute;
+      top: 45%;
+      right: -2px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      font-weight: bolder;
+      color: #f66464;
+      z-index: 3;
+    }
+  }
+
+
+  .menuButton:hover {
+    cursor: pointer !important;
+    span {
+      color: #f66464 !important;
+    }
+  }
+
+  // disapled
+  .disabeled {
+    position: relative;
+    width: 80px;
+    min-height: 80px;
+    margin: 8px 0;
+    border-radius: 10px;
+    .img {
+      margin-top: 10px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid gray;
+      img {
+        height: 30px;
+      }
+    }
+    h3 {
+      margin-top: 5px;
+      color: gray;
+      font-size: 14px;
+      line-height: 18px;
+      text-align: center;
+    }
+  }
+
+  // active one
+  .activeIcon {
+    position: relative;
+    width: 80px;
+    min-height: 80px;
+    margin: 8px 0;
+    border-radius: 10px;
+    .img {
+      margin-top: 10px;
+      height: 55px;
+      border-radius: 50%;
+      border: 2px solid $activeIconColor;
+      img {
+        height: 30px;
+        filter: invert(1);
+      }
+    }
+    h3 {
+      margin-top: 5px;
+      font-size: 12px;
+      line-height: 18px;
+      color: $activeIconColor;
+      text-align: center;
+    }
+    mat-icon {
+      position: absolute;
+      top: 45%;
+      right: -2px;
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      font-weight: bolder;
+      color: #f66464;
+      z-index: 3;
+    }
+  }
+  .icon:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+  }
+  .disabeld:hover {
+    background-color: white;
+  }
+}

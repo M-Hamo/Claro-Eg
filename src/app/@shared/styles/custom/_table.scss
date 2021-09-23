@@ -1,0 +1,76 @@
+//$row-hover-bg: #f2f2f2;
+//$row-selected-bg: #f2f2f2;
+//$row-odd-bg: #f7f7f7;
+//$row-bg: #fff;
+//
+//$row-hover-bg-dark: #373737;
+//$row-selected-bg-dark: #373737;
+//$row-odd-bg-dark: #3b3b3b;
+//$row-bg-dark: #424242;
+//
+//@include dark {
+//  background-color: $row-odd-bg-dark;
+//}
+
+@import '../mixins/breakpoints';
+
+.p-datatable.ms-datatable {
+  .p-datatable-header {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .p-datatable-thead > tr > th {
+    text-align: left;
+  }
+
+  .p-datatable-tbody > tr > td {
+    cursor: auto;
+  }
+
+  .p-paginator {
+    padding: 1rem;
+
+    .p-paginator-current {
+      margin-left: auto;
+    }
+  }
+}
+
+/* Responsive */
+.ms-datatable .p-datatable-tbody > tr > td .p-column-title {
+  display: none;
+}
+
+@include bp-lt(small) {
+  .p-datatable {
+    &.ms-datatable {
+      .p-datatable-thead > tr > th,
+      .p-datatable-tfoot > tr > td {
+        display: none !important;
+      }
+
+      .p-datatable-tbody > tr {
+        border-bottom: 1px solid var(--layer-2);
+
+        > td {
+          text-align: left;
+          display: block;
+          width: 100% !important;
+          float: left;
+          clear: left;
+          border: 0 none;
+
+          .p-column-title {
+            padding: 0.4rem;
+            min-width: 30%;
+            display: inline-block;
+            margin: -0.4rem 1rem -0.4rem -0.4rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

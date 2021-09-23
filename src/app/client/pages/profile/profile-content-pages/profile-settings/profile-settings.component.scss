@@ -1,0 +1,112 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$photo-size: 117px;
+$input-height: 50px;
+$input-background-color: rgba(230, 230, 230, 0.171);
+.profile-settings {
+  margin: 0;
+  padding: 0;
+  h3 {
+    height: 50px;
+    text-align: center;
+    color: $text-color;
+    margin-bottom: 0;
+  }
+  .photo {
+    min-height: 120px;
+  }
+  .img-pick {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid $text-color;
+    img {
+      min-height: $photo-size;
+      max-height: $photo-size;
+      min-width: $photo-size;
+      max-width: $photo-size;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .line1,
+  .line2,
+  .line3 {
+    min-height: 70px;
+  }
+  .line3 {
+    margin-top: 50px;
+  }
+
+  label {
+    margin: 0 10px;
+    font-size: 17px;
+    color: $text-color;
+    font-weight: bold;
+  }
+  .input {
+    height: $input-height;
+    border-radius: 5px;
+    padding: 0 5px;
+    background-color: #e6e6e657;
+    img {
+      max-height: 4vw;
+      margin: 0 10px;
+    }
+    input {
+      height: $input-height;
+      line-height: 30px;
+      font-weight: 600;
+      outline: none;
+      border: none;
+      text-align: start;
+      text-indent: 10px;
+      border-radius: 10px;
+      color: $text-color;
+      background-color: $input-background-color;
+    }
+    .pass-visible {
+      width: 35px;
+      height: 35px;
+      font-size: 35px;
+      color: $text-color;
+    }
+  }
+
+  .adjective {
+    .btn {
+      max-width: 110px;
+      height: 45px;
+      padding: 0 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: whitesmoke;
+      color: $text-color;
+    }
+  }
+  .submit {
+    padding: 5px 0;
+    font-size: large;
+    background-color: $text-color;
+    color: #fff;
+  }
+
+  .line4 {
+    height: 50px;
+    margin-top: 15px;
+
+    ::ng-deep mat-form-field {
+      font-size: 14px !important;
+      line-height: 16px !important;
+    }
+    ::ng-deep
+      .mat-form-field-appearance-outline.mat-focused
+      .mat-form-field-outline-thick,
+    .registerForm ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+      color: $text-color !important;
+    }
+  }
+}

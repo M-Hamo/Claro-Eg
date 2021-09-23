@@ -1,0 +1,642 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$dropdown-height: 43px;
+.layout {
+  position: relative;
+  margin-top: 75px;
+  width: 100%;
+}
+.fullHeightViewPiont {
+  position: relative;
+  height: 100vh;
+}
+
+.adds-container {
+  height: 20vh;
+  background-color: rgb(146, 146, 146);
+  margin: 25px 0;
+}
+/*****************/
+// banner
+/*****************/
+
+.banner {
+  position: relative;
+  min-height: 62vh !important;
+  background-image: url('../../../../assets/images/filter-banner-bg-filtered.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  text-align: center;
+  // direction: rtl;
+  padding: 0;
+  margin: 0;
+  z-index: 5;
+  h3 {
+    font-size: 26px;
+    color: #0e2131;
+    margin-bottom: 10px;
+    min-height: 50px;
+  }
+  .search {
+    margin: 0;
+    padding: 0;
+    form {
+      .search-field {
+        background-color: #fff;
+        border-radius: 5px;
+        height: max(30px, 50px);
+        line-height: 30px;
+        outline: none;
+        border: none;
+        text-align: start;
+        text-indent: 10px;
+      }
+      button {
+        height: 50px;
+        min-width: 50px;
+        top: -1px;
+        font-size: 1.5vw;
+        background-color: $text-color;
+        color: white;
+      }
+    }
+  }
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+  .filter-container {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.463);
+    margin-top: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    .badge {
+      position: relative;
+      top: -13px;
+      height: 30px;
+      min-width: 100px;
+      padding: 8px 0;
+      text-align: center;
+      background-color: $text-color;
+      color: #fff;
+    }
+
+    .filter-form {
+      // position: relative;
+      form {
+        .line1 {
+          min-height: 50px;
+          .half1 {
+            // position: relative;
+            button {
+              position: relative;
+              height: 40px;
+              min-width: 90px;
+              padding: 2px 5px;
+              margin: 5px 5px 0 5px;
+              color: $text-color;
+              border-radius: 30px;
+              font-size: 15px;
+              font-weight: bold;
+
+              img {
+                height: 20px;
+                max-width: 20px;
+              }
+            }
+
+            .claro {
+              height: 40px;
+              min-width: 90px;
+              padding: 5px;
+              margin: 5px 5px 0 5px;
+              // font-size: 15px;
+              border-radius: 30px;
+              font-weight: bold;
+              color: $text-color;
+              background-color: #fff;
+              img {
+                height: 20px;
+                max-width: 20px;
+              }
+            }
+            .claro:hover {
+              cursor: pointer;
+            }
+
+            .claroActive {
+              color: #fff;
+              background-color: #c53f3f;
+              img {
+                height: 20px;
+                max-width: 20px;
+                filter: invert(1);
+              }
+            }
+            // button-clicked
+            .button-clicked {
+              // position: relative;
+              min-width: 90px;
+              padding: 2px 5px;
+              margin: 0 5px;
+              color: #c53f3f;
+              border-radius: 30px;
+              font-size: 15px;
+              font-weight: bold;
+              background-color: whitesmoke;
+              img {
+                height: 20px;
+                max-width: 20px;
+                filter: invert(1);
+              }
+            }
+            .label {
+              height: 40px;
+              min-width: 90px;
+              padding: 2px 5px;
+              margin: 5px 5px 0 5px;
+              font-size: 15px;
+              border-radius: 30px;
+              font-weight: 700;
+              color: $text-color;
+              background-color: #fff;
+              img {
+                height: 20px;
+                max-width: 20px;
+              }
+            }
+
+            .label-active {
+              height: 40px;
+              min-width: 90px;
+              padding: 2px 5px;
+              margin: 5px 5px 0 5px;
+              font-size: 15px;
+              border-radius: 30px;
+              font-weight: 700;
+              color: #fff;
+              background-color: #c53f3f;
+              img {
+                height: 20px;
+                max-width: 20px;
+                filter: invert(1);
+              }
+            }
+            .label:hover,
+            .label-active {
+              cursor: pointer;
+            }
+
+            .claro {
+              font-size: 26px;
+              font-weight: normal;
+            }
+          }
+
+          .half2 {
+            .dwopdown {
+              ::ng-deep .p-dropdown {
+                width: 100% !important;
+                max-height: $dropdown-height !important;
+                text-align: start;
+                background-color: whitesmoke;
+                border-radius: 15px !important;
+              }
+            }
+            .map-list-toggle {
+              height: $dropdown-height !important;
+              background-color: #0e2131;
+              border-radius: 5px;
+
+              .list {
+                height: calc(($dropdown-height)- 5px);
+                border-radius: 5px;
+                font-size: larger;
+                background-color: transparent;
+                color: #fff;
+                cursor: pointer;
+                img {
+                  margin: 0 5px;
+                  height: 20px;
+                  width: 20px;
+                  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+                    brightness(102%) contrast(102%);
+                }
+              }
+              .listToogle {
+                height: calc(($dropdown-height)- 5px);
+                border-radius: 5px;
+                font-size: larger;
+                background-color: #fff;
+                color: #0e2131;
+                cursor: pointer;
+                img {
+                  margin: 0 5px;
+                  height: 20px;
+                  width: 20px;
+                  filter: invert(0%);
+                }
+              }
+
+              .map {
+                height: calc(($dropdown-height)- 5px);
+                border-radius: 5px;
+                font-size: larger;
+                color: #fff;
+                cursor: pointer;
+                img {
+                  margin: 0 5px;
+                  height: 20px;
+                  width: 20px;
+                  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+                    brightness(102%) contrast(102%);
+                }
+              }
+              .mapToggle {
+                height: calc(($dropdown-height)- 5px);
+                border-radius: 5px;
+                font-size: larger;
+                background-color: #fff;
+                color: #0e2131;
+                cursor: pointer;
+                img {
+                  margin: 0 5px;
+                  height: 20px;
+                  width: 20px;
+                  filter: invert(0%);
+                }
+              }
+            }
+          }
+        }
+        /********************/
+        // line2
+        /********************/
+        .line2 {
+          min-height: $dropdown-height;
+          .input {
+            height: $dropdown-height;
+            border-radius: 15px;
+            padding: 0 5px;
+            background-color: rgb(245, 245, 245);
+            img {
+              max-height: 2.5vw;
+              margin: 0 10px;
+            }
+            input {
+              height: $dropdown-height;
+              line-height: 30px;
+              outline: none;
+              border: none;
+              text-align: start;
+              text-indent: 10px;
+              border-radius: 10px;
+              background-color: whitesmoke;
+            }
+          }
+        }
+
+        .line3 {
+          min-height: $dropdown-height;
+
+          .dwopdown {
+            border-radius: 15px !important;
+            ::ng-deep .p-dropdown {
+              width: 100% !important;
+              max-height: $dropdown-height !important;
+              text-align: start;
+              background-color: whitesmoke;
+              border-radius: 15px !important;
+            }
+          }
+        }
+
+        .selection {
+          min-height: 50px;
+          padding: 0 25px;
+          ::ng-deep .mat-checkbox-frame {
+            border-color: #fff;
+          }
+          ::ng-deep .mat-checkbox.mat-accent {
+            color: #fff !important;
+            font-size: 14px;
+          }
+
+          ::ng-deep .mat-checkbox.mat-accent {
+            .mat-checkbox-ripple .mat-ripple-element {
+              background-color: $text-color !important;
+            }
+          }
+          ::ng-deep .mat-checkbox-checked.mat-accent {
+            .mat-checkbox-ripple .mat-ripple-element {
+              background-color: $text-color !important;
+            }
+
+            .mat-checkbox-background,
+            .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+              background-color: $text-color !important;
+            }
+          }
+        }
+
+        .submit-container {
+          height: 50px;
+          margin: 8px 0;
+          .buttons {
+            button {
+              height: 40px;
+              min-width: 100px;
+              font-size: larger;
+              color: #fff;
+              border-radius: 15px;
+            }
+
+            .submit {
+              background-color: #c53f3f;
+            }
+
+            .reset {
+              background-color: transparent;
+              border: 2px solid #fff;
+            }
+          }
+        }
+      }
+      .mat-flat-button.mat-warn,
+      .mat-raised-button.mat-warn,
+      .mat-fab.mat-warn,
+      .mat-mini-fab.mat-warn {
+        border-radius: 30px;
+        outline: none;
+        color: #024b74;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+/*****************/
+// content
+/*****************/
+.content {
+  position: relative;
+  top: -70px;
+  z-index: 2;
+  .line {
+    height: 1px;
+  }
+  p {
+    color: $text-color;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .item {
+    margin: 15px 0;
+  }
+  .readMore {
+    button {
+      min-width: 120px;
+      margin: 0 25px;
+      border: 2px solid #1672a7;
+      color: $text-color;
+      text-align: center;
+      background-color: transparent;
+      mat-icon {
+        font-size: 30px;
+      }
+    }
+
+    button:hover {
+      background-color: #1672a7;
+      color: white;
+    }
+  }
+}
+.under-content {
+  margin-bottom: 50px;
+  direction: rtl;
+  .baddge {
+    width: 250px;
+    height: 50px;
+    border-radius: 6px;
+    strong {
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+
+  .link {
+    min-height: 150px;
+    a {
+      max-width: 100%;
+      min-height: 25px;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      color: $text-color;
+    }
+
+    a:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media only screen and (max-width: 752px) {
+  .banner {
+    .filter-container {
+      .filter-form {
+        form {
+          .line1 {
+            position: relative;
+            .half1 {
+              button {
+                padding: 5px 0;
+                margin: 5px;
+                color: $text-color;
+                border-radius: 30px;
+                font-size: 12px;
+                font-weight: bold;
+              }
+              img {
+                height: 15px;
+                width: 15px;
+                margin: 0 3px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .banner {
+    .filter-container {
+      .filter-form {
+        form {
+          .line1 {
+            position: relative;
+            .half1 {
+              button {
+                height: 30px;
+                padding: 3px 0;
+                margin: 3px;
+                color: $text-color;
+                border-radius: 30px;
+                font-size: 10px;
+                font-weight: bold;
+              }
+              img {
+                height: 10px;
+                width: 10px;
+                margin: 0 3px;
+                object-fit: contain;
+              }
+
+              .claro {
+                height: 30px;
+                min-width: 50px;
+                padding: 3px;
+                margin: 3px 3px 0 3px;
+                // font-size: 15px;
+                border-radius: 30px;
+                color: $text-color;
+                background-color: #fff;
+                img {
+                  height: 20px;
+                  max-width: 20px;
+                }
+              }
+              .claro:hover {
+                cursor: pointer;
+              }
+
+              .claroActive {
+                color: #fff;
+                background-color: #c53f3f;
+                img {
+                  height: 20px;
+                  max-width: 20px;
+                  filter: invert(1);
+                }
+              }
+
+              .label {
+                height: 30px;
+                min-width: 50px;
+                padding: 2px 3px;
+                margin: 3px 3px 0 3px;
+                font-size: 15px;
+                border-radius: 30px;
+                font-weight: 700;
+                color: $text-color;
+                background-color: #fff;
+                img {
+                  height: 20px;
+                  max-width: 20px;
+                }
+              }
+
+              .label-active {
+                height: 30px;
+                min-width: 50px;
+                padding: 2px 3px;
+                margin: 3px 3px 0 3px;
+                font-size: 15px;
+                border-radius: 30px;
+                font-weight: 700;
+                color: #fff;
+                background-color: #c53f3f;
+                img {
+                  height: 20px;
+                  max-width: 20px;
+                  filter: invert(1);
+                }
+              }
+              .label:hover,
+              .label-active {
+                cursor: pointer;
+              }
+            }
+
+            .half2 {
+              .map-list-toggle {
+                margin: 0;
+                .list {
+                  height: 5.75vh !important;
+                  border-radius: 5px;
+                  font-size: 3vw;
+                  background-color: transparent;
+                  color: #fff;
+                  cursor: pointer;
+                  img {
+                    margin: 0 5px;
+                    height: 10px;
+                    width: 10px;
+                    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+                      brightness(102%) contrast(102%);
+                  }
+                }
+                .listToogle {
+                  height: 5.75vh !important;
+
+                  border-radius: 5px;
+                  font-size: 3vw;
+                  background-color: #fff;
+                  color: #0e2131;
+                  cursor: pointer;
+                  img {
+                    margin: 0 3px;
+                    height: 10px;
+                    width: 10px;
+                    filter: invert(0%);
+                  }
+                }
+
+                .map {
+                  height: 5.75vh !important;
+                  border-radius: 5px;
+                  font-size: 3vw;
+                  color: #fff;
+                  cursor: pointer;
+                  margin: 0;
+                  img {
+                    margin: 0 3px;
+                    height: 10px;
+                    width: 10px;
+                    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+                      brightness(102%) contrast(102%);
+                  }
+                }
+                .mapToggle {
+                  height: 5.75vh !important;
+
+                  border-radius: 5px;
+                  font-size: 3vw;
+                  background-color: #fff;
+                  color: #0e2131;
+                  cursor: pointer;
+                  img {
+                    margin: 0 5px;
+                    height: 10px;
+                    width: 10px;
+                    filter: invert(0%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

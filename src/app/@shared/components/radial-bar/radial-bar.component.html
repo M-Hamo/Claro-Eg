@@ -1,0 +1,9 @@
+ <div id="chart" fxLayout="row wrap" fxLayoutAlign="center center">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [plotOptions]="chartOptions.plotOptions"
+  ></apx-chart>
+  <div class="title text-center" fxFlex="100">{{ title }}</div>
+</div>
+

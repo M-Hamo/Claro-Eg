@@ -1,0 +1,71 @@
+/////////////////////////////////////
+@use '~@angular/material' as mat;
+// VARIABLES
+/////////////////////////////////////
+
+@import '~@angular/material/theming';
+
+// Layout
+$gutter: 16px !default;
+
+// Sidenav
+$sidenav-width: 240px !default;
+$sidenav-collapsed-width: 50px !default;
+$sidenav-width-mobile: 280px !default;
+
+// Toolbar
+$toolbar-height-desktop: 64px !default;
+$toolbar-height-mobile: 56px !default;
+
+// Menu bar
+$menubar-sticky-position-desktop: $toolbar-height-desktop;
+$menubar-sticky-position-mobile: $toolbar-height-mobile;
+
+// Typography
+$fond-size: 15px !default;
+$font-size-base: 1rem !default;
+$small-font-size: 0.875em !default;
+
+$font-family-sans-serif: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+  'Courier New', monospace !default;
+$font-family-base: $font-family-sans-serif;
+
+// Links
+$link-color: map-get(mat.$blue-palette, A400) !default;
+$link-decoration: none !default;
+
+// Code
+$code-color: map-get(mat.$red-palette, A400);
+$code-font-size: $small-font-size !default;
+
+// Border
+$border-color: rgba(0, 0, 0, 0.12) !default;
+
+// Breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$breakpoints: (
+  xsmall: 0,
+  small: 600px,
+  medium: 960px,
+  large: 1280px,
+  xlarge: 1920px,
+) !default;
+//$sm: 320px;
+//$md: 375px;
+//$lg: 425px;
+//$xl: 576px;
+//$tablet: 768px;
+//$laptop: 1024px;
+//$lg-laptop: 1440px;
+
+// Scrollbar
+//
+// If you need a customized thin scrollbar, you can add the element class
+// to the following variable (for example `$scrollbar-selectors: ".a", ".b", ".c";`)
+$scrollbar-selectors: '*';
+
+

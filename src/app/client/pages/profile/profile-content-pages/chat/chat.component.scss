@@ -1,0 +1,445 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$photo-size: 60px;
+$icon-height: 50px;
+$background-color: rgba(230, 230, 230, 0.171);
+
+.chat-container {
+  position: relative;
+  height: 78vh;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  background: url('../../../../../../assets/images/chat-background.jpg') repeat;
+}
+
+.chat-header {
+  height: 70px;
+  width: 100%;
+  padding: 0 15px;
+  border-radius: 5px;
+  background-color: rgb(245, 245, 245);
+  .avatar {
+    .img-pick {
+      height: 63px;
+      width: 63px;
+      border-radius: 50%;
+      border: 3px solid $text-color;
+      img {
+        min-height: $photo-size;
+        max-height: $photo-size;
+        min-width: $photo-size;
+        max-width: $photo-size;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .name {
+      height: 50px;
+      margin: 0 20px;
+      font-size: 17px;
+      list-style: 50px;
+      color: $text-color;
+    }
+  }
+}
+
+.message-box {
+  position: relative;
+  // height: 440px;
+  width: 100%;
+  padding: 10px 0;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: transparent;
+
+  .photoPannelshowing {
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+    animation: showingPannel 5s forwards ease-in-out;
+    background-color: #e6e6e6;
+    .bannel-header {
+      height: 50px;
+      color: #ffff;
+      background-color: #00bfa5;
+      .preview {
+        margin-inline-start: 50px;
+        color: #b2ece4;
+        .text {
+          font-size: 20px;
+          font-weight: 600;
+          margin: 0 20px;
+        }
+        button {
+          height: 45px;
+          width: 45px;
+          outline: none;
+          border: none;
+          font-size: 40px;
+          color: #b2ece4;
+          background-color: transparent;
+          :hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .image {
+      height: 70%;
+      img {
+        height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .select-more {
+      direction: rtl;
+      min-height: 100px;
+      border-top: 1px solid #cecece;
+      border-bottom: 4px solid #09e85e;
+      background-color: #d9d9d9;
+      .media-picker-item {
+        height: 70px;
+        width: 70px;
+        margin: 0 15px;
+        font-size: 30px;
+        background-color: whitesmoke;
+        color: $text-color;
+        .image-full {
+          height: 70px;
+          width: 70px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+        img,
+        video {
+          height: 70px;
+          width: 70px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+        :hover {
+          border-radius: 8px;
+          cursor: pointer;
+          background-color: rgb(238, 238, 238);
+        }
+      }
+      .submit-imgs {
+        background-color: #09e85e;
+        mat-icon {
+          color: #fff;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+  /****************/
+  .msg2 {
+    min-height: 50px;
+    max-width: 70%;
+    margin: 8px 30px 0 30px;
+    padding: 10px 10px 5px 10px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 10px 10px 10px 0;
+    color: #fff;
+    background-color: #002039;
+    .time {
+      height: 15px;
+      min-width: 50px;
+      font-size: 11px;
+      line-height: 10px;
+      margin-top: 5px;
+    }
+  }
+
+  .vioce-message2 {
+    min-height: 50px;
+    max-width: 70%;
+    margin: 8px 30px 0 30px;
+    padding: 5px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 10px 10px 10px 0;
+    color: #fff;
+    background-color: #002039;
+    .time {
+      height: 15px;
+      min-width: 50px;
+      font-size: 11px;
+      line-height: 10px;
+      margin-top: 5px;
+    }
+
+    // vioce message
+
+    .audio-player-container {
+      ::ng-deep {
+        .mat-card {
+          overflow: hidden;
+          box-shadow: none;
+          margin: 0;
+          padding: 0;
+          border-radius: 0px;
+          color: rgb(245, 245, 245);
+          background-color: #002039;
+        }
+        //
+        .mat-button {
+          // display: flex;
+          // justify-content: center;
+          // justify-self: center;
+
+        }
+        .play-pause {
+          // play button.
+        }
+
+        .mat-slider {
+          // any style for slider.
+        }
+      }
+    }
+    img {
+      min-height: 50px;
+      max-height: 50px;
+      min-width: 50px;
+      max-width: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .msg1 {
+    min-height: 50px;
+    max-width: 70%;
+    margin: 8px 30px 0 30px;
+    padding: 10px 10px 5px 10px;
+    font-size: 15px;
+    line-height: 20px;
+    border-radius: 10px 10px 0 10px;
+    color: #fff;
+    background-color: #024b74;
+    .time {
+      height: 15px;
+      min-width: 50px;
+      font-size: 11px;
+      line-height: 10px;
+      margin-top: 5px;
+    }
+  }
+}
+
+.vioce-message1 {
+  min-height: 50px;
+  max-width: 70%;
+  margin: 8px 30px 0 30px;
+  padding: 5px;
+  font-size: 15px;
+  line-height: 20px;
+  border-radius: 10px 10px 0 10px;
+  color: #fff;
+  background-color: #024b74;
+  .time {
+    height: 15px;
+    min-width: 50px;
+    font-size: 11px;
+    line-height: 10px;
+    margin-top: 5px;
+  }
+
+  // vioce message
+
+  .audio-player-container {
+    ::ng-deep {
+      .mat-card {
+        overflow: hidden;
+        box-shadow: none;
+        border-radius: 0px;
+        color: rgb(245, 245, 245);
+        background-color: #024b74;
+      }
+
+      .play-pause {
+        // play button.
+      }
+
+      .mat-slider {
+        // any style for slider.
+      }
+    }
+  }
+  img {
+    min-height: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    max-width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+/*********************/
+.inputs {
+  direction: rtl;
+  min-height: 70px;
+  max-height: 130px;
+  width: 100%;
+  padding: 0 10px;
+  border-radius: 0 0 5px 5px;
+  background-color: rgb(245, 245, 245);
+
+  .icon {
+    height: $icon-height;
+    width: $icon-height;
+    margin: 0 5px;
+    button {
+      padding: 10px;
+      border-radius: 50%;
+      background-color: transparent;
+      color: gray;
+      mat-icon {
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+      }
+    }
+  }
+  .selectPhoto {
+    height: $icon-height;
+    width: $icon-height;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: gray;
+    mat-icon {
+      height: 40px;
+      width: 40px;
+      font-size: 30px;
+    }
+    :hover {
+      cursor: pointer;
+    }
+  }
+  .start-record-icon {
+    height: $icon-height;
+    width: $icon-height;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: gray;
+    mat-icon {
+      height: 40px;
+      width: 40px;
+      font-size: 30px;
+    }
+  }
+
+  .start-recording {
+    min-height: 70px;
+    max-height: 130px;
+    padding: 0 10px;
+    border-radius: 30px;
+    transition: ease-in 5s;
+    .record-button {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: ease-in-out 0.1s;
+      outline: none;
+      border: none;
+      mat-icon {
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+      }
+    }
+
+    .accept {
+      border: 2px solid #29ea29;
+      mat-icon {
+        color: #29ea29;
+      }
+    }
+    .accept:hover,
+    .accept:active {
+      cursor: pointer;
+      background-color: #29ea29;
+      mat-icon {
+        color: #ffff;
+      }
+    }
+
+    .cancel {
+      border: 2px solid #ff3b00;
+      mat-icon {
+        color: #ff3b00;
+      }
+    }
+    .cancel:hover,
+    .cancel:active {
+      background-color: #ff3b00;
+      cursor: pointer;
+      mat-icon {
+        color: #ffff;
+      }
+    }
+    /**************/
+    .timer {
+      margin: 0px 15px;
+      .time {
+        margin: 0 8px;
+        font-size: 17px;
+      }
+      //
+      .red-point {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        border: 5px solid red;
+        background-color: #ff3b00;
+        animation: red_point 1s 0s infinite both ease-in-out;
+      }
+    }
+  }
+
+  //
+  .input {
+    min-height: $icon-height;
+    max-height: 120px;
+    margin: 0 5px;
+    border-radius: 30px;
+    background-color: #fff;
+    textarea {
+      max-height: 120px;
+      max-width: 300px;
+      line-height: 30px;
+      font-weight: 600;
+      outline: none;
+      border: none;
+      padding: 0 20px;
+      text-align: start;
+      border-radius: 30px;
+      color: $text-color;
+      background-color: transparent;
+    }
+  }
+}
+
+@keyframes red_point {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

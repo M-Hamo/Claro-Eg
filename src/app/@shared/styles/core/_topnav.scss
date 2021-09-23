@@ -1,0 +1,119 @@
+///////////////////////////////////
+@use '~@angular/material' as mat;
+// TOPNAV
+///////////////////////////////////
+
+@mixin ms-topnav-theme($theme) {
+  $background: mat.get-color-from-palette($theme, 'background');
+  $foreground: mat.get-color-from-palette($theme, 'foreground');
+
+  .ms-menubar {
+    background: mat.get-color-from-palette($background, app-bar);
+    color: mat.get-color-from-palette($foreground, text);
+
+    .mat-button {
+      &.active {
+        background-color: mat.get-color-from-palette($background, focused-button);
+      }
+    }
+  }
+}
+
+.ms-menubar {
+  position: sticky;
+  z-index: 200;
+  padding: 8px;
+
+  @include mat.elevation(5);
+
+  .mat-icon {
+    margin-top: -2px;
+  }
+
+  .menu-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    font-size: 18px;
+    line-height: 18px;
+
+    [dir='rtl'] & {
+      margin-left: 8px;
+      margin-right: auto;
+    }
+  }
+
+  .menu-label,
+  .menu-badge {
+    margin-left: 8px;
+    font-size: 12px;
+
+    [dir='rtl'] & {
+      margin-left: auto;
+      margin-right: 8px;
+    }
+  }
+
+  .menu-badge {
+    border-radius: 10px;
+  }
+
+  .menu-caret {
+    margin-right: -8px;
+
+    [dir='rtl'] & {
+      margin-left: -8px;
+      margin-right: auto;
+    }
+  }
+
+  .mat-tab-nav-bar,
+  .mat-tab-header {
+    border-bottom: none;
+  }
+}
+
+.mat-menu-item {
+  .menu-name {
+    margin-right: 8px;
+    vertical-align: middle;
+
+    [dir='rtl'] & {
+      margin-left: 8px;
+      margin-right: auto;
+    }
+  }
+}
+
+.mat-tab-links {
+  justify-content: center;
+}
+
+// Layout control
+.ms-navbar-top {
+  .ms-menubar {
+    top: 0;
+  }
+
+  .ms-branding {
+    margin-left: 16px;
+
+    [dir='rtl'] & {
+      margin-left: auto;
+      margin-right: 16px;
+    }
+  }
+}
+
+// Layout control
+.ms-header-fixed {
+  .ms-menubar {
+    top: $menubar-sticky-position-desktop;
+
+    @include bp-lt(small) {
+      & {
+        top: $menubar-sticky-position-mobile;
+      }
+    }
+  }
+}

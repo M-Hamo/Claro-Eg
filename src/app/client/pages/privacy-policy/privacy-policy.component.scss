@@ -1,0 +1,23 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+$background-color: rgba(230, 230, 230, 0.171);
+
+.privacy-policy {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  margin-top: 75px;
+  h3 {
+    font-size: 20px;
+    color: $text-color;
+    border-bottom: 1.5px solid $background-color;
+  }
+  mat-card {
+    min-height: 70vh;
+    margin-bottom: 100px;
+    border-radius: 4px;
+    background-color: $background-color;
+  }
+}

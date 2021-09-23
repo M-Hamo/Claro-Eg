@@ -1,0 +1,28 @@
+///////////////////////////////////
+// BRANDING
+///////////////////////////////////
+
+.ms-branding {
+  display: inline-block;
+  color: inherit;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.ms-branding-logo-expanded {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  vertical-align: middle;
+
+  [dir='rtl'] & {
+    margin-left: 10px;
+    margin-right: auto;
+  }
+}
+
+.ms-branding-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  vertical-align: middle;
+}

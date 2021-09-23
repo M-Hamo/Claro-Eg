@@ -1,0 +1,23 @@
+@mixin avatar($size) {
+  display: inline-block;
+  height: #{$size}px;
+  width: #{$size}px;
+  object-fit: cover;
+  overflow: hidden;
+  background-position: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 2.5rem;
+  font-size: 0.875rem;
+  color: white;
+  background-color: #f7f7fc;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin avatar-r($size) {
+  @include avatar($size);
+  border-radius: 50%;
+}

@@ -1,0 +1,39 @@
+$text-color: #024b74;
+$img-filter-white: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+$img-filter-ourColor: invert(0%);
+
+.profile-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  margin-top: 75px;
+  h2 {
+    height: 50px;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 26px;
+    color: $text-color;
+  }
+
+  .main {
+    min-height: calc(100vh - 145px);
+    margin-bottom: 20px;
+    .sideNav,
+    .content {
+      min-height: calc(100vh - 240px);
+    }
+    .sideNav {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 75px;
+      background-color: #fff;
+    }
+
+    .content {
+      margin: 0 120px;
+      background-color: rgba(245, 245, 245, 0.286);
+      border-radius: 5px;
+    }
+  }
+}
